@@ -1,11 +1,14 @@
 import { jwtDecode } from "jwt-decode";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useGetProfile } from "../services/ProfileMutation";
+import Loading from "../component/Loading";
 
 export default function WithAuth(Component) {
   function ComponentWithAuth() {
     const location = useLocation();
     const navigate = useNavigate();
+    const { isLoading } = useGetProfile();
 
     const token = localStorage.getItem("token");
     console.log(token);
@@ -32,6 +35,8 @@ export default function WithAuth(Component) {
       console.error("Invalid Token:", error);
       navigate("/login");
     }
+
+    if (isLoading) return <Loading />;
 
     // If authenticated, render the component
     return <Component />;

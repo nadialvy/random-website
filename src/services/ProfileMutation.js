@@ -21,6 +21,8 @@ export function useGetProfile() {
       }
       return respData.data;
     },
+    cacheTime: 1000 * 60 * 10, //cache data user
+    retry: false,
   });
 
   // debuggg
