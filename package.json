@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tailwindcss/postcss": "^4.0.4",
     "@tanstack/react-query": "^5.66.0",
     "autoprefixer": "^10.4.20",
     "cra-template": "1.2.0",
