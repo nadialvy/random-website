@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@tailwindcss/postcss": "^4.0.4",
     "@tanstack/react-query": "^5.66.0",
-    "autoprefixer": "^10.4.20",
     "cra-template": "1.2.0",
     "dotenv": "^16.4.7",
     "framer-motion": "^12.4.1",
@@ -44,5 +42,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1"
   }
 }
