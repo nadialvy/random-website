@@ -239,6 +239,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <p className="absolute bottom-0 right-0 text-xs text-gray-700 p-4">*All asset from https://oatside.com/</p>
     </div>
   );
 }
