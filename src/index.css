@@ -1,9 +1,30 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap");
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Archivo", sans-serif;
+  overflow-x: hidden;
 }
 
+.cursor {
+  width: 30px;
+  height: 30px;
+  /* background-color: rgba(10, 10, 10, 0.7); */
+  border-radius: 50%;
+  border: 1px solid black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Prevents blocking clicks */
+  transition: transform 0.1s ease-out; /* Smooth animation */
+}
+
+.pinned-card {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}

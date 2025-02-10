@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes/Routes";
+import Cursor from "./component/Cursor";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const queryClient = new QueryClient();
@@ -15,6 +16,7 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <Toaster position="top-center" />
         <AppRoutes />
+        <Cursor />
         <App />
       </QueryClientProvider>
     </BrowserRouter>
