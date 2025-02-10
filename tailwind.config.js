@@ -16,6 +16,9 @@ module.exports = {
           "url('https://www.igsas.com.tr/uploads/news/18--07-2024/103a9ec8-22c5-4d2d-af2a-49d41a951a8a.jpg')",
         article2:
           "url('https://www.igsas.com.tr/uploads/news/28--06-2024/81b3fbc6-9fc3-4465-9d81-d5099262e1fc.webp')",
+        article3:
+          "url('https://www.igsas.com.tr/uploads/tesisler/iskenderun_gorsel_6.jpg')",
+        sustan: "url('https://www.igsas.com.tr/assets/images/main/sustan.jpg')",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

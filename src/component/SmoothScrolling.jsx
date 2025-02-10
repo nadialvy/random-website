@@ -6,13 +6,13 @@ function SmoothScrolling({ children }) {
     <ReactLenis
       root
       options={{
-        lerp: 0.04, // Adjusts inertia smoothness (lower = heavier)
-        duration: 5, // Adjusts how long it takes to stop (higher = weightier)
-        smoothTouch: true, // Makes mobile touch scrolling smoother
-        wheelMultiplier: 1.2, // Makes mouse scroll feel heavier
-        touchMultiplier: 1.5, // Makes touch scroll more natural
+        lerp: 0.09, // (lower = heavier)
+        duration: 3.5, // (higher = weightier)
+        smoothTouch: true,
+        wheelMultiplier: 1.1, // Makes mouse scroll feel heavier
+        touchMultiplier: 1.2, // Makes touch scroll more natural
         infinite: false, // Prevents infinite looping
-        ease: (t) => 1 - (1 - t) ** 3.5, // Custom easing for bounce
+        ease: (t) => 1 - (1 - t) ** 4, // Custom easing for bounce
       }}
     >
       {children}
