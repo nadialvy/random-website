@@ -28,34 +28,42 @@
   visibility: visible !important;
   opacity: 1 !important;
 }
-/* 
-.scrollContent {
-  width: 100%;
+
+html, body {
+  overflow-x: hidden;
 }
 
-.box2 {
-  width: 300px;
-  padding: 20px;
-  text-align: center;
-  background: blue;
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden; /* If you don't need vertical scrolling at all */
 }
 
-.spacer {
-  height: 100px;
-}
+*{
+  .debug-red{
+    @apply border-2 border-red-500;
+  }
 
-.s2 {
-  height: 200px;
-}
+  .debug-blue{
+    @apply border-2 border-blue-500;
+  }
 
-.s0 {
-  height: 0px;
-}
+  .debug-green{
+    @apply border-2 border-green-500;
+  }
 
-.s_viewport {
-  height: 500px;
+  .debug-yellow{
+    @apply border-2 border-yellow-500;
+  }
+
+  .debug-purple{
+    @apply border-2 border-purple-500;
+  }
+
+  .debug-pink{
+    @apply border-2 border-pink-500;
+  }
+
+  .debug-indigo{
+    @apply border-2 border-indigo-500;
+  }
 }
- */

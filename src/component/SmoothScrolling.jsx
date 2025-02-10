@@ -6,8 +6,8 @@ function SmoothScrolling({ children }) {
     <ReactLenis
       root
       options={{
-        lerp: 0.09, // (lower = heavier)
-        duration: 3.5, // (higher = weightier)
+        lerp: 0.04, // (lower = heavier)
+        duration: 5, // (higher = weightier)
         smoothTouch: true,
         wheelMultiplier: 1.1, // Makes mouse scroll feel heavier
         touchMultiplier: 1.2, // Makes touch scroll more natural

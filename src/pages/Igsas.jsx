@@ -9,10 +9,13 @@ import {
 import { useEffect, useRef, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useTransform, useInView, useScroll } from "framer-motion";
 import ScrollMagic from "scrollmagic";
 import { ChevronRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Igsas() {
   useEffect(() => {
@@ -84,6 +87,84 @@ export default function Igsas() {
     };
   });
 
+  // stat animation
+  const circleRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: circleRef,
+    offset: ["start end", "end start"],
+  });
+
+  const rotate = useTransform(scrollYProgress, [0, 1], [-180, 180]);
+
+  const firstNumberRef = useRef(null);
+  const [firstNumberVal, setFirstNumberVal] = useState(0);
+  useEffect(() => {
+    const target = {
+      value: firstNumberVal.value,
+    };
+    gsap.to(target, {
+      duration: 3,
+      value: "+=120",
+      roundProps: "value",
+      ease: "power1.out",
+      onUpdate: () => {
+        setFirstNumberVal(Math.floor(target.value));
+      },
+      scrollTrigger: {
+        trigger: firstNumberRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, [firstNumberVal.value]);
+
+  const secNumberRef = useRef(null);
+  const [secNumberVal, setSecNumberVal] = useState(0);
+  useEffect(() => {
+    const target = {
+      value: secNumberVal.value,
+    };
+
+    gsap.to(target, {
+      duration: 3,
+      ease: "power1.out",
+      value: "+=24",
+      roundProps: "value",
+      onUpdate: () => {
+        setSecNumberVal(Math.floor(target.value));
+      },
+      scrollTrigger: {
+        trigger: secNumberRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+  }, [secNumberVal.value]);
+
+  const thirdNumberRef = useRef(null);
+  const [thirdNumberVal, setThirdNumberVal] = useState(0);
+  useEffect(() => {
+    const target = {
+      value: thirdNumberVal.value,
+    };
+
+    gsap.to(target, {
+      duration: 3,
+      ease: "power4.out",
+      roundProps: "value",
+      value: "+=50",
+      onUpdate: () => {
+        setThirdNumberVal(Math.floor(target.value));
+      },
+      scrollTrigger: {
+        start: "top 80%",
+        trigger: thirdNumberRef.current,
+        toggleActions: "play none none none",
+      },
+    });
+  }, [thirdNumberVal.value]);
+
   return (
     <>
       <SmoothScrolling>
@@ -124,7 +205,7 @@ export default function Igsas() {
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0 }}
                   transition={{
                     duration: 0.25,
-                    delay: i * 0.05,
+                    delay: i * 0.1,
                   }}
                   key={el}
                 >
@@ -132,9 +213,7 @@ export default function Igsas() {
                 </motion.span>
               ))}
             </p>
-            <div className="absolute top-[30%]" ref={triggerStartCardRef}>
-              {}trigger
-            </div>
+            <div className="absolute top-[30%]" ref={triggerStartCardRef} />
 
             <div className="mt-10">
               <div className="w-full flex items-start justify-start gap-x-8">
@@ -363,6 +442,119 @@ export default function Igsas() {
               />
             </div>
           </div>
+
+          {/* Topragin Section */}
+          <div className="mt-32 bg-[#fefffe] w-full">
+            <div className="w-full flex justify-start items-start gap-x-12 pt-16 px-16">
+              <div className="w-2/5 rounded-t-full bg-topragin1 bg-cover bg-no-repeat h-[500px]" />
+              <div className="w-3/5 flex flex-col justify-between items-start h-[500px]">
+                <p className="text-[#1c4734] text-[32px]">Toprağın İzinde</p>
+                <p className="text-[#1c4734] text-[72px] leading-[80px]">
+                  Potasyum Gübresi Nedir? | Çeşitleri ve
+                </p>
+                <p className="text-[#1c4734] font-thin text-[24px]">
+                  Tarımda verimliliği artırmak ve bitkilerin sağlıklı gelişimini
+                  desteklemek için kullanılan gübreler, bitkilerin ihtiyaç
+                  duyduğu besin maddelerinin toprağa sağlanmasını sağlar. Bu
+                  gübrelerin başında po...
+                </p>
+                <button
+                  className="bg-[#42ff00] group hover:gap-x-16 duration-300 ease-in-out transition-all hover:bg-[#2a6b4a] rounded-full px-6 py-5 flex justify-center items-center gap-x-8"
+                  type="button"
+                >
+                  <p className="text-[24px] group-hover:text-white transition-all duration-300 ease-in-out">
+                    DEVAMINI OKU
+                  </p>
+                  <ArrowRight
+                    size={24}
+                    className="text-[#002b04] group-hover:text-white transition-all duration-300 ease-in-out"
+                  />
+                </button>
+              </div>
+            </div>
+          </div>
+          {/* Stat Section */}
+          <div className="relative h-[700px]">
+            <div className="w-full bg-stats h-[700px] bg-center bg-cover bg-no-repeat bg-fixed overflow-hidden">
+              <div className="p-16 flex items-center justify-start gap-x-8">
+                <div className="w-3/5 flex flex-col gap-y-4">
+                  <p className="text-[#1c4734] text-[60px]">
+                    Rakamlarla İGSAŞ:
+                  </p>
+                  <p className="text-[#1c4734] font-thin text-[30px]">
+                    Her yıl yükselen başarı ivmesiyle Türkiye’nin en büyük gübre
+                    üreticilerindendir.
+                  </p>
+                  <div className="flex gap-20 mt-8 text-[#1c4734]">
+                    <div className="flex flex-col gap-y-10">
+                      <div className="flex flex-col items-start justify-start">
+                        <p
+                          className="text-[96px] leading-tight"
+                          ref={firstNumberRef}
+                        >
+                          {firstNumberVal}+
+                        </p>
+                        <p className="leading-tight -pb-12">CALISAN</p>
+                      </div>
+                      <div className="flex flex-col items-start justify-start">
+                        <p
+                          className="text-[96px] leading-tight"
+                          ref={secNumberRef}
+                        >
+                          {secNumberVal}+
+                        </p>
+                        <p className="leading-tight -pb-12">TESIS</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col gap-y-10">
+                      <div className="flex flex-col items-start justify-start">
+                        <p
+                          className="text-[96px] leading-tight"
+                          ref={secNumberRef}
+                        >
+                          {secNumberVal}
+                        </p>
+                        <p className="leading-tight -pb-12">DEPO</p>
+                      </div>
+                      <div className="flex flex-col items-start justify-start">
+                        <p
+                          className="text-[96px] leading-tight"
+                          ref={thirdNumberRef}
+                        >
+                          {thirdNumberVal}+
+                        </p>
+                        <p className="leading-tight -pb-12">YIL TECRÜBE</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-2/5 py-[150px] overflow-hidden relative flex justify-center items-center">
+                  <img
+                    src="https://www.igsas.com.tr/assets/images/icons/stats-item-01-tr.svg"
+                    alt="img"
+                    className="absolute -top-[0] left-0 z-50 w-[70%]"
+                  />
+                  <img
+                    src="https://www.igsas.com.tr/assets/images/icons/stats-item-02.svg"
+                    alt="daun"
+                    className="absolute bottom-[20%] right-[10%] z-40"
+                  />
+                  <img
+                    src="https://www.igsas.com.tr/assets/images/icons/stats-item-02.svg"
+                    alt="daun"
+                    className="absolute bottom-[22%] w-[26%] left-[10%] z-40"
+                  />
+                  <motion.div
+                    ref={circleRef}
+                    style={{ rotate, clipPath: "circle(50% at 50% 50%)" }}
+                    className="w-[360px] h-[360px] rounded-full bg-center bg-no-repeat bg-apaajadeh bg-cover"
+                  />{" "}
+                </div>
+              </div>
+            </div>
+            {/* <div className="absolute inset-0 bg-white/75" /> */}
+          </div>
+          <div className="h-[300px]">{}</div>
         </div>
       </SmoothScrolling>
     </>
