@@ -1,6 +1,13 @@
-import { Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Igsas from "./pages/Igsas";
+import Framework from "./pages/Framework";
 
 export default function App() {
-  return <Navigate to="/igsas" />;
+  return (
+      <Routes>
+        <Route path="/" element={<div>app</div>} />
+        <Route path="/igsas" element={<Igsas />} />
+        <Route path="/framework" element={<Framework />} />
+      </Routes>
+  );
 }
-

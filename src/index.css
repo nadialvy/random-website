@@ -1,5 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -10,16 +11,21 @@
   overflow-x: hidden;
 }
 
+.framework {
+  font-family: "Work Sans", sans-serif;
+}
+
 .cursor {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 1px solid black;
+  border: 2px solid black;
   position: fixed;
   top: 0;
   left: 0;
   pointer-events: none; /* Prevents blocking clicks */
   transition: transform 0.1s ease-out; /* Smooth animation */
+  z-index: 50;
 }
 
 .debug-red {
@@ -48,4 +54,8 @@
 
 .debug-indigo {
   @apply border-2 border-indigo-500;
+}
+
+.draw {
+  cursor: url("https://cdn.prod.website-files.com/66c503d081b2f012369fc5d2/6734f749e14a7a55057796c2_strat-0-cursor.svg"), auto;
 }
