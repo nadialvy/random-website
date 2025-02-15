@@ -6,8 +6,11 @@ import { useRef, useState, useEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const HoriScroll = () => {
+  // useracesref digunakan untuk membungkus flex elemen yang akan digeser kekanan
   const useRacesRef = useRef(null);
+  // useraceswrapperref digunakan untuk membungkus useRacesRef
   const useRacesWrapperRef = useRef(null);
+  // amounttoscroll digunakna untuk memperhitungkan jarak berapa px akan scrolled kekanan
   const [amountToScroll, setAmountToScroll] = useState(0);
 
   useEffect(() => {
@@ -15,16 +18,21 @@ const HoriScroll = () => {
       if (useRacesRef.current) {
         const racesWidth = useRacesRef.current.offsetWidth;
         const windowWidth = window.innerWidth;
+        // amounttoscroll dihitung dengan mengurangi total lebar kesmaping elemn flex (races) dengan lebar screen user
         setAmountToScroll(racesWidth - windowWidth);
       }
     };
 
+    // Panggil `updateSizes()` langsung saat komponen pertama kali dirender
     updateSizes();
+    // Update ukuran saat user resize window
     window.addEventListener("resize", updateSizes);
+    // Cleanup: Hapus event listener saat komponen di-unmount biar ga memory leak
     return () => window.removeEventListener("resize", updateSizes);
   }, []);
 
   useEffect(() => {
+    // hanya akan berjalan jika mencapai useracesref dan useraceswrapperref
     if (
       !useRacesRef.current ||
       !useRacesWrapperRef.current ||
@@ -32,11 +40,21 @@ const HoriScroll = () => {
     )
       return;
 
+    // expected outputnya adalah
+    // 1. targetnya ketika mencapai userracesref
+    // 2. akan bergeser ke kiri sejauh amount to scroll. kenapa ke kiri? karena ada minusnya
     const tween = gsap.to(useRacesRef.current, {
       x: -amountToScroll,
       ease: "none",
     });
 
+    //  Expected Output:
+    // 1️. ScrollTrigger akan aktif saat `useRacesWrapperRef` masuk viewport
+    // 2️. `start: "top 2%"` → Animasi mulai saat bagian atas elemen 2% dari atas viewport
+    // 3️. `end: "+=amountToScroll"` → Animasi selesai setelah scroll sejauh `amountToScroll`
+    // 4️. `pin: true` → Elemen tetap di tempat (sticky effect)
+    // 5️. `scrub: 1` → Animasi mengikuti kecepatan scroll (smooth scroll effect)
+    // 6️. `animation: tween` → Menggunakan animasi GSAP yang sudah dibuat di atas
     ScrollTrigger.create({
       trigger: useRacesWrapperRef.current,
       start: "top 2%",
@@ -44,7 +62,6 @@ const HoriScroll = () => {
       pin: true,
       animation: tween,
       scrub: 1,
-      markers: true,
     });
 
     return () => {
@@ -56,7 +73,7 @@ const HoriScroll = () => {
 
   return (
     <>
-      <div className="h-[50vh] bg-[#fefeff]"></div>
+      <div className="h-[20vh] bg-[#fefeff]" />
 
       <div ref={useRacesWrapperRef} className="overflow-hidden bg-[#002a04]">
         <div
