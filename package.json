@@ -16,6 +16,8 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
+    "react-scroll-percentage": "^4.3.2",
+    "resize-observer-polyfill": "^1.5.1",
     "scrollmagic": "^2.0.8",
     "web-vitals": "^4.2.4"
   },

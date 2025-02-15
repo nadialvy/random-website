@@ -14,6 +14,7 @@ import ScrollMagic from "scrollmagic";
 import { ChevronRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import HoriScroll from "../component/HoriScroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,20 +33,9 @@ export default function Igsas() {
   const text = "Doğanın gücünü koruyarak geleceğe bereket katıyoruz.".split(
     " "
   );
-  const sustanText = "Sürdürülebilirlik".split("");
-  const sustanSubText =
-    "Bu topraklardan doğan ve bu toprakların değerleriyle kendini şekillendiren Yıldızlar Yatırım Holding'in; bugüne kadar gerçekleştirdiği tüm faaliyetlerinin ana amacı insanımız ve insanlık için katma değer üretmektir.".split(
-      " "
-    );
 
   const textRef = useRef(null);
-  const sustanTextRef = useRef(null);
-  const sustanSubTextRef = useRef(null);
   const isInView = useInView(textRef, { once: false, margin: "-20%" });
-  const isInViewSustan = useInView(sustanTextRef, {
-    once: false,
-    margin: "-20%",
-  });
   const [isSecCardHovered, setIsSecCardHovered] = useState(false);
   // text animation end
 
@@ -394,45 +384,14 @@ export default function Igsas() {
           <div className="relative h-[500px] mt-32">
             <div className="bg-sustan h-[500px] bg-fixed flex flex-col justify-start bg-center bg-cover p-12 bg-no-repeat relative">
               <div className="absolute inset-0 bg-black/25">{}</div>
-              <p
-                ref={sustanTextRef}
-                className="relative font-medium text-white text-[64px]"
-              >
-                {sustanText.map((el, i) => (
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={
-                      isInViewSustan ? { opacity: 1, y: 0 } : { opacity: 0 }
-                    }
-                    transition={{
-                      duration: 0.25,
-                      delay: i / 10,
-                    }}
-                    key={el}
-                  >
-                    {el}
-                  </motion.span>
-                ))}
+              <p className="relative font-medium text-white text-[64px]">
+                Sürdürülebilirlik
               </p>
-              <p
-                ref={sustanSubTextRef}
-                className="text-white text-[28px] mt-12 font-light relative "
-              >
-                {sustanSubText.map((el, i) => (
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={
-                      isInViewSustan ? { opacity: 1, y: 0 } : { opacity: 0 }
-                    }
-                    transition={{
-                      duration: 0.25,
-                      delay: i / 7,
-                    }}
-                    key={el}
-                  >
-                    {el}{" "}
-                  </motion.span>
-                ))}
+              <p className="text-white text-[28px] mt-12 font-light relative ">
+                Bu topraklardan doğan ve bu toprakların değerleriyle kendini
+                şekillendiren Yıldızlar Yatırım Holding'in; bugüne kadar
+                gerçekleştirdiği tüm faaliyetlerinin ana amacı insanımız ve
+                insanlık için katma değer üretmektir.
               </p>
               <ChevronRight
                 strokeWidth={3}
@@ -442,6 +401,8 @@ export default function Igsas() {
               />
             </div>
           </div>
+
+          <HoriScroll />
 
           {/* Topragin Section */}
           <div className="mt-32 bg-[#fefffe] w-full">
@@ -474,7 +435,7 @@ export default function Igsas() {
             </div>
           </div>
           {/* Stat Section */}
-          <div className="relative h-[700px]">
+          <div className="relative h-[800px]">
             <div className="w-full bg-stats h-[700px] bg-center bg-cover bg-no-repeat bg-fixed overflow-hidden">
               <div className="p-16 flex items-center justify-start gap-x-8">
                 <div className="w-3/5 flex flex-col gap-y-4">
@@ -554,7 +515,7 @@ export default function Igsas() {
             </div>
             {/* <div className="absolute inset-0 bg-white/75" /> */}
           </div>
-          <div className="h-[300px]">{}</div>
+          {/* <div className="h-[300px]">{}</div> */}
         </div>
       </SmoothScrolling>
     </>
