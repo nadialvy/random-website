@@ -1,18 +1,18 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 * {
-  font-family: "Archivo", sans-serif;
+  font-family: "Prompt", sans-serif;
   overflow-x: hidden;
 }
 
 .framework {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Prompt", sans-serif;
   overflow-y: auto; /* Prevents forced scrolling */
   scrollbar-width: none; /* Hide scrollbar for Firefox */
   -ms-overflow-style: none; /* Hide scrollbar for IE & Edge */
@@ -65,7 +65,7 @@
   @apply border-2 border-indigo-500;
 }
 
-.draw {
+.framework {
   cursor: url("https://cdn.prod.website-files.com/66c503d081b2f012369fc5d2/6734f749e14a7a55057796c2_strat-0-cursor.svg"),
     auto;
 }

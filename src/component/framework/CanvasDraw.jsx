@@ -55,10 +55,10 @@ const CanvasDraw = () => {
   return (
     <>
       {/* canvas */}
-      <div className="z-30 overflow-hidden relative w-full h-[78vh] draw">
+      <div className="z-30 overflow-hidden relative w-full h-[100vh] draw">
         {/* asset start */}
         <div className="flex justify-between items-center">
-          <p className="z-10 text-white pointer-events-none text-[140px] font-bold absolute top-[46%] left-[15%]">
+          <p className="z-10 text-white pointer-events-none text-[130px] overflow-hidden font-semibold absolute top-[36%] left-[15%]">
             Framework
           </p>
           <div className="flex flex-col gap-y-3 bg-white p-2 rounded-xl absolute top-[35.5%] z-20 right-[2%] items-center justify-center">
@@ -118,8 +118,8 @@ const CanvasDraw = () => {
         {/* line grid start */}
         <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[15.5%] bg-opacity-60 z-0" />
         <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[40.6%] bg-opacity-60 z-0" />
-        <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[54.5%] bg-opacity-60 z-0" />
-        <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[73.5%] bg-opacity-60 z-0" />
+        <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[40.5%] bg-opacity-60 z-0" />
+        <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[63.5%] bg-opacity-60 z-0" />
         {/* line grid end */}
 
         {/* Canvas */}
