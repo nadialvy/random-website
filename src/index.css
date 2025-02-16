@@ -13,6 +13,15 @@
 
 .framework {
   font-family: "Work Sans", sans-serif;
+  overflow-y: auto; /* Prevents forced scrolling */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE & Edge */
+}
+
+.framework::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+  width: 0;
+  height: 0;
 }
 
 .cursor {
@@ -57,5 +66,6 @@
 }
 
 .draw {
-  cursor: url("https://cdn.prod.website-files.com/66c503d081b2f012369fc5d2/6734f749e14a7a55057796c2_strat-0-cursor.svg"), auto;
+  cursor: url("https://cdn.prod.website-files.com/66c503d081b2f012369fc5d2/6734f749e14a7a55057796c2_strat-0-cursor.svg"),
+    auto;
 }

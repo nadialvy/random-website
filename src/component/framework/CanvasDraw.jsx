@@ -1,3 +1,4 @@
+import { PenTool, Eraser } from "lucide-react";
 import { useRef, useState, useEffect } from "react";
 
 const CanvasDraw = () => {
@@ -6,6 +7,7 @@ const CanvasDraw = () => {
   const [drawing, setDrawing] = useState(false);
   const [color] = useState("#c8aff0");
   const [brushSize] = useState(8);
+  const [isEraserMode, setIsEraserMode] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -19,86 +21,118 @@ const CanvasDraw = () => {
     ctxRef.current = ctx;
   }, [color, brushSize]);
 
-  // Mulai menggambar
+  // Start gambar
   const startDrawing = (event) => {
     ctxRef.current.beginPath();
     ctxRef.current.moveTo(event.clientX, event.clientY);
     setDrawing(true);
   };
 
-  // Proses menggambar
+  // Proses gambar atau hapus line
   const draw = (event) => {
     if (!drawing) return;
     ctxRef.current.lineTo(event.clientX, event.clientY);
+    if (isEraserMode) {
+      ctxRef.current.strokeStyle = "#20191b";
+      ctxRef.current.lineWidth = 28;
+    } else {
+      ctxRef.current.strokeStyle = color;
+      ctxRef.current.lineWidth = brushSize;
+    }
     ctxRef.current.stroke();
   };
 
-  // Berhenti menggambar
+  // Stop gambar
   const stopDrawing = () => {
     ctxRef.current.closePath();
     setDrawing(false);
   };
 
+  // toggle brush dan eraser
+  const toggleEraser = () => setIsEraserMode(true);
+  const toggleBrush = () => setIsEraserMode(false);
+
   return (
-    <div className="relative w-full debug-purple">
+    <>
       {/* canvas */}
-      <div className="relative debug-red w-full h-full draw">
+      <div className="z-30 overflow-hidden relative w-full h-[78vh] draw">
         {/* asset start */}
-        <p className="z-10 text-white text-[140px] font-medium absolute top-[30%] left-[15%]">
-          Framework
-        </p>
+        <div className="flex justify-between items-center">
+          <p className="z-10 text-white pointer-events-none text-[140px] font-bold absolute top-[46%] left-[15%]">
+            Framework
+          </p>
+          <div className="flex flex-col gap-y-3 bg-white p-2 rounded-xl absolute top-[35.5%] z-20 right-[2%] items-center justify-center">
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+            <div
+              className={`${
+                !isEraserMode ? "bg-black" : "bg-white"
+              } p-2 rounded-md`}
+              onClick={toggleBrush}
+            >
+              <PenTool
+                size={30}
+                className={`${!isEraserMode ? "text-white" : "text-black"}`}
+              />
+            </div>
+            {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+            <div
+              className={`${
+                isEraserMode ? "bg-black" : "bg-white"
+              } p-2 rounded-md`}
+              onClick={toggleEraser}
+            >
+              <Eraser
+                size={30}
+                className={`${isEraserMode ? "text-white" : "text-black"}`}
+              />
+            </div>
+          </div>
+        </div>
         <img
           src="/images/framework/blue.png"
           alt="blue"
-          className="absolute top-[10%] right-[35%] z-10 w-40"
+          className="absolute top-[10%] right-[35%] pointer-events-none z-10 w-40"
         />
         <img
           src="/images/framework/star.png"
           alt="blue"
-          className="absolute top-[50%] left-[10%] z-10 w-28 "
+          className="absolute top-[50%] left-[10%] pointer-events-none z-10 w-28 "
         />
         <img
           src="/images/framework/smile.png"
           alt="blue"
-          className="absolute top-[24%] left-[20%] z-10 w-20"
+          className="absolute top-[34%] left-[20%] pointer-events-none z-10 w-20"
         />
         <img
           src="/images/framework/cloud.png"
           alt="blue"
-          className="absolute top-[30%] right-[10%] z-10 w-28"
+          className="absolute top-[30%] right-[10%] pointer-events-none z-10 w-28"
         />
         <img
           src="/images/framework/lamp.png"
           alt="blue"
-          className="absolute top-[60%] right-[10%] z-10 w-64"
+          className="absolute top-[56%] right-[19%] pointer-events-none z-10 w-52"
         />
         {/* asset end */}
 
         {/* line grid start */}
-        <div className="h-full w-[1px] bg-[#307fff] absolute top-0 bottom-0 left-[15%] bg-opacity-60 z-0" />
-        <div className="h-full w-[1px] bg-[#307fff] absolute top-0 bottom-0 right-[41%] bg-opacity-60 z-0" />
-        <div className="h-[1px] w-full bg-[#307fff] absolute left-0 right-0 top-[36%] bg-opacity-60 z-0" />
-        <div className="h-[1px] w-full bg-[#307fff] absolute left-0 right-0 top-[52%] bg-opacity-60 z-0" />
-        <div className="h-[1px] w-full bg-[#307fff] absolute left-0 right-0 bottom-[22%] bg-opacity-60 z-0" />
-
+        <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[15.5%] bg-opacity-60 z-0" />
+        <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[40.6%] bg-opacity-60 z-0" />
+        <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[54.5%] bg-opacity-60 z-0" />
+        <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[73.5%] bg-opacity-60 z-0" />
         {/* line grid end */}
 
         {/* Canvas */}
         <canvas
           ref={canvasRef}
-          className="w-full h-full z-20 bg-[#20191b]"
+          className="w-full h-auto z-20 bg-[#20191b]"
           onMouseDown={startDrawing}
           onMouseMove={draw}
           onMouseUp={stopDrawing}
           onMouseLeave={stopDrawing}
         />
       </div>
-      <img
-        src="/images/framework/section1-draw.webp"
-        alt="draw"
-        className=" w-[500px] absolute debug-red -bottom-[34%] left-[20%]"
-      />
-    </div>
+    </>
   );
 };
 
