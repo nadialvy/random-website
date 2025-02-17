@@ -55,7 +55,7 @@ const CanvasDraw = () => {
   return (
     <>
       {/* canvas */}
-      <div className="z-30 overflow-hidden relative w-full h-[100vh] draw">
+      <div className="z-30 overflow-hidden relative w-full h-[99vh] draw">
         {/* asset start */}
         <div className="flex justify-between items-center">
           <p className="z-10 text-white pointer-events-none text-[130px] overflow-hidden font-semibold absolute top-[36%] left-[15%]">

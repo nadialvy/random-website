@@ -17,7 +17,8 @@ const Framework = () => {
   const polaroidRef = useRef(null);
   const agreementRef = useRef(null);
   const purpleRef = useRef(null);
-
+  const bethRef = useRef(null);
+  const trinaRef = useRef(null);
   useEffect(() => {
     if (
       !drawRef.current ||
@@ -27,7 +28,9 @@ const Framework = () => {
       !handRef ||
       !polaroidRef ||
       !agreementRef ||
-      !purpleRef
+      !purpleRef ||
+      !bethRef ||
+      !trinaRef
     ) {
       console.error("One or more refs are null:", {
         draw: drawRef.current,
@@ -40,103 +43,90 @@ const Framework = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: drawRef.current,
-        start: "bottom 60%",
-        end: "bottom",
-        markers: true,
-        // scrub: 1,
-        onEnter: () => tl.play(), // 🔥 Plays animation when scrolling down
-        onLeaveBack: () => tl.reverse(),
-        onUpdate: (self) => {
-          if (self.direction === -1) {
-            tl.reverse();
-          }
-        },
+        start: "center top",
+        end: "+=200px",
+        // markers: true,
+        scrub: 2.5,
       },
     });
 
+    // ✅ Fixing Animation Feel
     tl.to(drawRef.current, {
-      y: -200,
-      x: -20,
-      ease: "none",
-      duration: 1,
+      y: -300,
+      x: -60,
+      ease: "power3.out", // ✅ Smoother ease
+      duration: 3,
     })
       .to(
         dogRef.current,
-        {
-          y: -80,
-          x: -200,
-          ease: "none",
-          duration: 0.7,
-        },
-
+        { y: -210, x: -510, ease: "power3.out", duration: 2.8 },
         "<"
       )
       .to(
         spsRef.current,
-        {
-          y: -100,
-          x: 100,
-          ease: "power2.inOut",
-          duration: 1,
-        },
+        { y: -300, x: 190, ease: "power3.out", duration: 2.5 },
+        "<"
+      )
+      .to(
+        bethRef.current,
+        { y: -230, x: 190, ease: "power3.out", duration: 2.5 },
         "<"
       )
       .to(
         roomRef.current,
-        {
-          y: -30,
-          x: 100,
-          ease: "power2.out",
-          duration: 1.2,
-          delay: 0.5
-        },
+        { y: -30, x: 400, ease: "power3.out", duration: 2.4 },
         "<"
       )
       .to(
         handRef.current,
-        {
-          y: 20,
-          x: 160,
-          ease: "power2.out",
-        },
+        { y: 70, x: 700, ease: "power3.out", duration: 2.6 },
         "<"
       )
       .to(
         polaroidRef.current,
-        {
-          y: 140,
-          x: 10,
-          ease: "power4.inOut",
-          clipPath: "inset(0% 0% 100vh 0%)",
-          opacity: 0,
-          duration: 2,
-        },
-        "<"
-      )
-      .to(
-        agreementRef.current,
-        {
-          y: 320,
-          x: -200,
-          ease: "power2.inOut",
-          clipPath: "inset(0% 0% 100vh 0%)",
-          opacity: 0,
-          duration: 2,
-        },
+        { y: 140, x: 490, ease: "power3.out", duration: 3.2 },
         "<"
       )
       .to(
         purpleRef.current,
-        {
-          y: 420,
-          x: 40,
-          ease: "power4.inOut",
-          clipPath: "inset(0% 0% 100vh 0%)",
-          opacity: 0,
-          duration: 3,
-        },
+        { y: 130, x: -600, ease: "power3.out", duration: 3 },
+        "<"
+      )
+      .to(
+        agreementRef.current,
+        { y: 430, x: -400, ease: "power3.out", duration: 3 },
+        "<"
+      )
+      .to(
+        trinaRef.current,
+        { y: 430, x: -440, ease: "power3.out", duration: 3 },
         "<"
       );
+
+    gsap.to(purpleRef.current, {
+      clipPath: "inset(0% 0% 100% 0%)",
+      ease: "power3.out",
+      duration: 2,
+      scrollTrigger: {
+        trigger: purpleRef.current,
+        start: "bottom 85%",
+        end: "top 20%",
+        scrub: 1,
+      },
+    });
+
+    gsap.to(agreementRef.current, {
+      clipPath: "inset(0% 0% 100% 0%)",
+      ease: "power3.out",
+      duration: 2.5,
+      scrollTrigger: {
+        trigger: agreementRef.current,
+        start: "center top",
+        end: "+=200",
+        scrub: 2.5,
+        markers: true,
+      },
+    });
 
     return () => {
       // biome-ignore lint/complexity/noForEach: <explanation>
@@ -148,8 +138,8 @@ const Framework = () => {
     <SmoothScrolling>
       <div className="framework">
         <CanvasDraw />
-        <div className="relative z-50 w-full flex-grow min-h-[120vh] flex flex-col overflow-visible debug-red">
-          <div className="debug-purple min-h-[120vh] w-full z-0 relative">
+        <div className="relative -mt-1 z-50 w-full flex-grow min-h-[120vh] flex flex-col overflow-visible ">
+          <div className="min-h-[120vh] w-full z-0 relative">
             <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[30.5%] bg-opacity-60 z-0" />
             <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[30.6%] bg-opacity-60 z-0" />
             <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[40%] bg-opacity-60 z-0" />
@@ -213,23 +203,41 @@ const Framework = () => {
             className="z-30 w-[400px] absolute -top-[12%] right-[10%] -rotate-[2deg]"
           />
           <img
+            ref={bethRef}
+            src="/images/framework/beth.png"
+            alt="draw"
+            className="z-30 w-[140px] absolute top-[38%] right-[30%] -rotate-[2deg]"
+          />
+          <img
             ref={polaroidRef}
             src="/images/framework/section1-polaroid.webp"
             alt="draw"
-            className="z-30 w-[340px] absolute top-[70%] right-[16%] rotate-[8deg]"
+            className="z-30 w-[340px] absolute top-[58%] right-[12%] rotate-[8deg]"
           />
           <img
             ref={agreementRef}
             src="/images/framework/section1-agreement.webp"
             alt="draw"
-            className="z-30 w-[340px] absolute top-[50%] left-[2%] rotate-[8deg]"
+            className="z-30 w-[340px] absolute top-[48%] left-[4%] rotate-[8deg]"
+          />
+          <img
+            ref={trinaRef}
+            src="/images/framework/trina.png"
+            alt="draw"
+            className="z-30 w-[140px] absolute top-[40%] left-[20%] rotate-[8deg]"
           />
           <img
             ref={purpleRef}
             src="/images/framework/section1-purple.webp"
             alt="draw"
-            className="z-30 w-[340px] absolute top-[64%] left-[18%]"
+            className="z-30 w-[340px] absolute top-[60%] left-[18%]"
           />
+        </div>
+        <div className="relative debug-yellow min-h-[100vh] flex flex-col w-full">
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[0%] bg-opacity-60 z-0" />
+          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[7.5%] bg-opacity-60 z-0" />
+          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[12.6%] bg-opacity-60 z-0" />
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[40%] bg-opacity-60 z-0" />
         </div>
       </div>
     </SmoothScrolling>

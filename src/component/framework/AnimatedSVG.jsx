@@ -31,7 +31,7 @@ const AnimatedSVG = () => {
         start: "top 80%", // Adjust when animation should start
         end: "top 20%",
         scrub: false, // Set to true if you want it to animate as you scroll
-        markers: true, // Debugging (remove in production)
+        // markers: true, // Debugging (remove in production)
       },
     });
   }, []);
