@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 import CanvasDraw from "../component/framework/CanvasDraw";
@@ -8,7 +8,10 @@ import AnimatedSVG from "../component/framework/AnimatedSVG";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const thePillars = ["humanity", "clarity", "actions", "delight"];
+
 const Framework = () => {
+  const [selectedPillar, setSelectedPillar] = useState(0);
   const drawRef = useRef(null);
   const dogRef = useRef(null);
   const spsRef = useRef(null);
@@ -43,9 +46,8 @@ const Framework = () => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: drawRef.current,
-        start: "center top",
-        end: "+=300px",
-        // markers: true,
+        start: "center 10%",
+        end: "+=500px",
         scrub: 4,
       },
     });
@@ -54,7 +56,7 @@ const Framework = () => {
     tl.to(drawRef.current, {
       y: -300,
       x: -60,
-      ease: "none", // ✅ Smoother ease
+      ease: "none",
       duration: 3,
     })
       .to(
@@ -62,26 +64,14 @@ const Framework = () => {
         { y: -210, x: -510, ease: "none", duration: 2.8 },
         "<"
       )
-      .to(
-        spsRef.current,
-        { y: -300, x: 190, ease: "none", duration: 2.5 },
-        "<"
-      )
+      .to(spsRef.current, { y: -300, x: 190, ease: "none", duration: 2.5 }, "<")
       .to(
         bethRef.current,
         { y: -230, x: 190, ease: "none", duration: 2.5 },
         "<"
       )
-      .to(
-        roomRef.current,
-        { y: -30, x: 400, ease: "none", duration: 2.4 },
-        "<"
-      )
-      .to(
-        handRef.current,
-        { y: 70, x: 700, ease: "none", duration: 2.6 },
-        "<"
-      )
+      .to(roomRef.current, { y: -30, x: 400, ease: "none", duration: 2.4 }, "<")
+      .to(handRef.current, { y: 70, x: 700, ease: "none", duration: 2.6 }, "<")
       .to(
         polaroidRef.current,
         { y: 140, x: 490, ease: "none", duration: 3.2 },
@@ -126,8 +116,8 @@ const Framework = () => {
     <SmoothScrolling>
       <div className="framework">
         <CanvasDraw />
-        <div className="relative -mt-1 z-50 w-full flex-grow min-h-[120vh] flex flex-col overflow-visible ">
-          <div className="min-h-[120vh] w-full z-0 relative">
+        <div className="relative -mt-1 z-50 w-full overflow-visible ">
+          <div className="min-h-[110vh] w-full z-0 relative">
             <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[30.5%] bg-opacity-60 z-0" />
             <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[30.6%] bg-opacity-60 z-0" />
             <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[40%] bg-opacity-60 z-0" />
@@ -143,19 +133,6 @@ const Framework = () => {
                   <div className=" -mt-20 -ml-[50%] ">
                     <AnimatedSVG />
                   </div>
-                  {/* <svg
-                    viewBox="0 0 241 79"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M136.312 5.36757C121.141 3.18061 105.259 3.35023 89.4749 3.35023C78.8142 3.35023 67.6107 3.69543 57.8105 5.53568C46.3147 7.69434 35.4387 9.44345 26.9943 13.3996C21.3741 16.0326 16.4391 19.1871 12.9527 22.3282C8.59577 26.2536 4 30.2672 4 34.6003C4 38.152 4.2907 41.4473 6.92141 44.8738C13.0054 52.7983 27.1666 59.6793 44.6642 64.188C53.429 66.4464 63.2056 68.387 72.8888 69.9224C84.4805 71.7605 96.7765 73.7587 108.888 74.779C118.336 75.5749 128.044 75.302 137.678 75.302C150.884 75.302 164.422 75.4623 177.211 73.9571C191.574 72.2668 206.755 66.5797 214.342 61.5916C232.69 49.5277 248.183 31.7982 227.724 18.6671C221.808 14.8702 195.655 8.12268 172.926 8.12268"
-                      stroke="#0061FE"
-                      strokeWidth="6.13235"
-                      strokeLinecap="round"
-                      style={{ strokeDashoffset: 0 }}
-                    />
-                  </svg> */}
                 </div>
               </div>
             </div>
@@ -221,11 +198,147 @@ const Framework = () => {
             className="z-30 w-[340px] absolute top-[60%] left-[18%]"
           />
         </div>
-        <div className="relative debug-yellow min-h-[100vh] flex flex-col w-full">
+        <div className="relative overflow-hidden flex flex-col w-full">
           <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[0%] bg-opacity-60 z-0" />
-          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[7.5%] bg-opacity-60 z-0" />
+          <div className="h-[98%] w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[5.5%] bg-opacity-60 z-0" />
+          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[7.5%] bg-opacity-60 z-0" />
           <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[12.6%] bg-opacity-60 z-0" />
-          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[40%] bg-opacity-60 z-0" />
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[18%] bg-opacity-60 z-0" />
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[30%] bg-opacity-60 z-0" />
+          {/* div between img */}
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[98%] bg-opacity-60 z-0" />
+          <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] right-[27%] bg-opacity-60 z-0" />
+          <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] right-[46%] bg-opacity-60 z-0" />
+          <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] left-[33.5%] bg-opacity-60 z-0" />
+          <div className="h-[1px] w-[79.9%] bg-[#307fff] pointer-events-none absolute left-[12.6%] right-0 top-[64%] bg-opacity-60 z-0" />
+
+          <div className="flex flex-col ml-[13%] text-[36px] font-semibold items-start justify-start">
+            <p className="">Dropbox is designed</p>
+            <p className="-my-4">to simplify the frenzy</p>
+            <p>of modern work</p>
+          </div>
+          <div className="flex flex-col ml-[12.7%] mt-[6%] mr-[7.5%]">
+            <div className="flex justify-between items-start">
+              <div className="w-1/4 p-4 justify-between flex flex-col items-center">
+                <img
+                  src="/images/framework/section1-dog.webp"
+                  alt="dog"
+                  className="w-64 p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  mov_452.mp4
+                </p>
+              </div>
+              <div className="w-1/4 p-4 h- justify-between flex flex-col items-center">
+                <img
+                  src="/images/framework/section1-draw.webp"
+                  alt="dog"
+                  className="w-[220px] p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  BTS-film2.jpg
+                </p>
+              </div>
+              <div className="w-1/4 flex flex-col justify-between items-center p-4">
+                <img
+                  src="/images/framework/section1-sps.webp"
+                  alt="dog"
+                  className="w-44 p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  FinanceSheet-2025.jpg
+                </p>
+              </div>
+              <div className="w-1/4 p-4 justify-between flex flex-col items-center">
+                <img
+                  src="/images/framework/section1-room.webp"
+                  alt="dog"
+                  className="h-44 object-cover p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  img108.png
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-between items-start">
+              <div className="w-1/4 p-4 justify-between flex flex-col items-center">
+                <img
+                  src="/images/framework/section1-polaroid.webp"
+                  alt="dog"
+                  className="w-64 p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  polaroid_Tokyo.mp4
+                </p>
+              </div>
+              <div className="w-1/4 p-4 h- justify-between flex flex-col items-center">
+                <img
+                  src="/images/framework/section1-hand.webp"
+                  alt="dog"
+                  className="h-48 p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  dessert-select.tiff
+                </p>
+              </div>
+              <div className="w-1/4 flex flex-col justify-between items-center p-4">
+                <img
+                  src="/images/framework/section1-purple.webp"
+                  alt="dog"
+                  className="w-44 p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  marketing-brochure.pdf
+                </p>
+              </div>
+              <div className="w-1/4 p-4 justify-between flex flex-col items-center">
+                <img
+                  src="/images/framework/section1-agreement.webp"
+                  alt="dog"
+                  className="h-44 object-cover p-2"
+                />
+                <p className="text-[#307fff] mt-2 text-[12px] font-medium">
+                  DxHealthSystem.png
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="relative min-h-[100vh] overflow-hidden flex flex-col w-full">
+          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[7.5%] bg-opacity-60 z-0" />
+          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[32%] bg-opacity-60 z-0" />
+          <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[12.6%] bg-opacity-60 z-0" />
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[20%] bg-opacity-60 z-0" />
+          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[41%] bg-opacity-60 z-0" />
+
+          <div className="ml-[13%] mt-[10%] overflow-hidden merritext font-semibold text-[40px] max-w-[720px] leading-tight">
+            Our design strategy prompts{" "}
+            {thePillars.map((pillar, index) => (
+              <span key={pillar}>
+                {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+                <span
+                  className={`${
+                    selectedPillar === index ? "text-black" : "text-gray-400"
+                  } merritext`}
+                  onClick={() => setSelectedPillar(index)}
+                >
+                  {pillar}
+                  <sup className="ml-[2px]">{index + 1}</sup>
+                  {index < thePillars.length - 1 && (
+                    <span
+                      className={
+                        selectedPillar === index
+                          ? "text-black"
+                          : "text-gray-400"
+                      }
+                    >
+                      {index === thePillars.length - 2 ? " & " : ", "}
+                    </span>
+                  )}
+                </span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </SmoothScrolling>

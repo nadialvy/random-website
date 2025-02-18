@@ -72,8 +72,7 @@ const CanvasDraw = () => {
         width: "100%",
         left: "0%",
         backgroundColor: "#307fff",
-        duration: 0.4,
-        delay: 0.1,
+        duration: 0.9,
         opacity: 0.6,
         ease: "power2.out",
       }
@@ -86,7 +85,7 @@ const CanvasDraw = () => {
         left: "0%",
         backgroundColor: "#307fff",
         duration: 0.6,
-        delay: 0.3,
+        delay: 0.5,
         opacity: 0.6,
         ease: "power2.out",
       }
@@ -100,7 +99,7 @@ const CanvasDraw = () => {
         height: "100%",
         top: "0%",
         backgroundColor: "#307fff",
-        duration: 0.5,
+        duration: 0.6,
         opacity: 0.6,
 
         ease: "power2.out",
@@ -115,7 +114,7 @@ const CanvasDraw = () => {
         top: "0%",
         backgroundColor: "#307fff",
         opacity: 0.6,
-        duration: 0.3,
+        duration: 0.9,
         delay: 0.2,
         ease: "power2.out",
       }
