@@ -57,7 +57,7 @@ const CardArticle = () => {
   return (
     <div className="relative max-w-screen bg-white px-16 mt-24">
       <p
-        className="text-[#002b04] text-[64px] max-w-[1200px] mb-20 leading-[74px]"
+        className="text-[#002b04] overflow-hidden text-[64px] max-w-[1200px] mb-20 leading-[74px]"
         ref={textRef}
       >
         {text.map((el, i) => (
@@ -88,7 +88,7 @@ const CardArticle = () => {
                 <Trees size={36} color="white" />
                 <div className="flex flex-col justify-center items-start text-white gap-y-10">
                   <p className="font-semibold text-[40px]">Tarımsal Ürünler</p>
-                  <p className="text-[26px] font-light">
+                  <p className="text-[26px] overflow-hidden font-light">
                     Zengin gübre yelpazemizle Türk tarımının verimliliğini ve
                     kalitesini artırmayı hedefliyoruz. Klasikten özele, her
                     türlü bitki ve toprak tipine uygun çözümler sunarak,
@@ -140,7 +140,7 @@ const CardArticle = () => {
                 <div className="flex flex-col opacity-100 z-10 justify-start items-start gap-y-4 w-full h-full p-8">
                   <CircleHelp size={40} color="white" />
                   <div>
-                    <p className="text-white font-semibold text-[48px]">
+                    <p className="text-white overflow-hidden font-semibold text-[48px]">
                       Yenilikçi ve Minimalist
                     </p>
                     <p className="font-light text-[20px] text-white">
@@ -181,7 +181,7 @@ const CardArticle = () => {
             {/* Article */}
             <div className="w-full mt-12">
               <div>
-                <p className="text-[#002b04] text-[64px]">Güncel Haberler</p>
+                <p className="text-[#002b04] overflow-hidden text-[64px]">Güncel Haberler</p>
                 <button
                   className="bg-[#f0f2a4] hover:gap-x-16 duration-300 ease-in-out transition-all hover:bg-[#c4ae78] rounded-full px-6 py-5 flex justify-center items-center gap-x-8"
                   type="button"
@@ -201,7 +201,7 @@ const CardArticle = () => {
                     <p className="text-[16px] text-[#002b04] font-semibold ">
                       18 Temmuz 2024 Perşembe
                     </p>
-                    <p className="text-[22px] text-[#002b04] leading-tight mt-4">
+                    <p className="text-[22px] overflow-hidden text-[#002b04] leading-tight mt-4">
                       GSAŞ, Samsun’daki Yeni Yatırımıyla Çiftçinin Kompoze ve
                       GSAŞ, Samsun’daki Yeni
                     </p>
@@ -217,7 +217,7 @@ const CardArticle = () => {
                     <p className="text-[16px] text-[#002b04] font-semibold ">
                       28 Haziran 2024 Cuma
                     </p>
-                    <p className="text-[22px] text-[#002b04] leading-tight mt-4">
+                    <p className="text-[22px] overflow-hidden text-[#002b04] leading-tight mt-4">
                       Organomineral Gübre İhtiyacını Karşılayacak GSAŞ,
                       Samsun’daki Yeni Gubre
                     </p>
@@ -233,7 +233,7 @@ const CardArticle = () => {
                     <p className="text-[16px] text-[#002b04] font-semibold ">
                       11 Samsun 2022 Perşembe
                     </p>
-                    <p className="text-[22px] text-[#002b04] leading-tight mt-4">
+                    <p className="text-[22px] overflow-hidden text-[#002b04] leading-tight mt-4">
                       GSAŞ, Samsun’daki Yeni Organomineral Gübre İhtiyacını
                       "İşletmenizi ileri taşıyacak
                     </p>

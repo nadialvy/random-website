@@ -37,7 +37,7 @@ export default function Igsas() {
               data-aos-once="false"
               data-aos-anchor-placement="top-bottom"
             >
-              <p className="text-[64px] leading-[74px] text-white font-semibold max-w-[1200px]">
+              <p className="text-[64px] overflow-hidden leading-[74px] text-white font-semibold max-w-[1200px]">
                 The Legacy of 54 Years of History, <br /> the Prosperity of the
                 Future
               </p>
@@ -57,7 +57,7 @@ export default function Igsas() {
           <div className="relative h-[500px] mt-32">
             <div className="bg-sustan h-[500px] bg-fixed flex flex-col justify-start bg-center bg-cover p-12 bg-no-repeat relative">
               <div className="absolute inset-0 bg-black/25">{}</div>
-              <p className="relative font-medium text-white text-[64px]">
+              <p className="relative font-medium overflow-hidden text-white text-[64px]">
                 Sürdürülebilirlik
               </p>
               <p className="text-white text-[28px] mt-12 font-light relative ">
@@ -81,7 +81,7 @@ export default function Igsas() {
               <div className="w-2/5 rounded-t-full bg-topragin1 bg-cover bg-no-repeat h-[500px]" />
               <div className="w-3/5 flex flex-col justify-between items-start h-[500px]">
                 <p className="text-[#1c4734] text-[32px]">Toprağın İzinde</p>
-                <p className="text-[#1c4734] text-[72px] leading-[80px]">
+                <p className="text-[#1c4734] overflow-hidden text-[72px] leading-[80px]">
                   Potasyum Gübresi Nedir? | Çeşitleri ve
                 </p>
                 <p className="text-[#1c4734] font-thin text-[24px]">

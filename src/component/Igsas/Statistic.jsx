@@ -20,7 +20,7 @@ const Statistic = () => {
     };
 
     gsap.to(target, {
-      duration: 3,
+      duration: 5,
       value: "+=120",
       roundProps: "value",
       ease: "power1.out",
@@ -29,7 +29,7 @@ const Statistic = () => {
       },
       scrollTrigger: {
         trigger: firstNumberRef.current,
-        start: "top 80%",
+        start: "top 30%",
         toggleActions: "play none none none",
       },
     });
@@ -43,7 +43,7 @@ const Statistic = () => {
     };
 
     gsap.to(target, {
-      duration: 3,
+      duration: 4,
       ease: "power1.out",
       value: "+=24",
       roundProps: "value",
@@ -66,7 +66,7 @@ const Statistic = () => {
     };
 
     gsap.to(target, {
-      duration: 3,
+      duration: 8,
       ease: "power4.out",
       roundProps: "value",
       value: "+=50",
@@ -86,7 +86,9 @@ const Statistic = () => {
       <div className="w-full bg-stats h-[700px] bg-center bg-cover bg-no-repeat bg-fixed overflow-hidden">
         <div className="p-16 flex items-center justify-start gap-x-8">
           <div className="w-3/5 flex flex-col gap-y-4">
-            <p className="text-[#1c4734] text-[60px]">Rakamlarla İGSAŞ:</p>
+            <p className="text-[#1c4734] overflow-hidden text-[60px]">
+              Rakamlarla İGSAŞ:
+            </p>
             <p className="text-[#1c4734] font-thin text-[30px]">
               Her yıl yükselen başarı ivmesiyle Türkiye’nin en büyük gübre
               üreticilerindendir.
@@ -94,30 +96,46 @@ const Statistic = () => {
             <div className="flex gap-20 mt-8 text-[#1c4734]">
               <div className="flex flex-col gap-y-10">
                 <div className="flex flex-col items-start justify-start">
-                  <p className="text-[96px] leading-tight" ref={firstNumberRef}>
+                  <p
+                    className="text-[96px] overflow-hidden leading-tight"
+                    ref={firstNumberRef}
+                  >
                     {firstNumberVal}+
                   </p>
-                  <p className="leading-tight -pb-12">CALISAN</p>
+                  <p className="leading-tight overflow-hidden -pb-12">
+                    CALISAN
+                  </p>
                 </div>
-                <div className="flex flex-col items-start justify-start">
-                  <p className="text-[96px] leading-tight" ref={secNumberRef}>
+                <div className="flex flex-col items-start overflow-hidden justify-start">
+                  <p
+                    className="text-[96px] overflow-hidden leading-tight"
+                    ref={secNumberRef}
+                  >
                     {secNumberVal}+
                   </p>
-                  <p className="leading-tight -pb-12">TESIS</p>
+                  <p className="leading-tight overflow-hidden -pb-12">TESIS</p>
                 </div>
               </div>
               <div className="flex flex-col gap-y-10">
-                <div className="flex flex-col items-start justify-start">
-                  <p className="text-[96px] leading-tight" ref={secNumberRef}>
+                <div className="flex flex-col items-start overflow-hidden justify-start">
+                  <p
+                    className="text-[96px] overflow-hidden leading-tight"
+                    ref={secNumberRef}
+                  >
                     {secNumberVal}
                   </p>
-                  <p className="leading-tight -pb-12">DEPO</p>
+                  <p className="leading-tight overflow-hidden -pb-12">DEPO</p>
                 </div>
-                <div className="flex flex-col items-start justify-start">
-                  <p className="text-[96px] leading-tight" ref={thirdNumberRef}>
+                <div className="flex flex-col items-start overflow-hidden justify-start">
+                  <p
+                    className="text-[96px] overflow-hidden leading-tight"
+                    ref={thirdNumberRef}
+                  >
                     {thirdNumberVal}+
                   </p>
-                  <p className="leading-tight -pb-12">YIL TECRÜBE</p>
+                  <p className="leading-tight overflow-hidden -pb-12">
+                    YIL TECRÜBE
+                  </p>
                 </div>
               </div>
             </div>

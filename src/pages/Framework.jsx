@@ -44,9 +44,9 @@ const Framework = () => {
       scrollTrigger: {
         trigger: drawRef.current,
         start: "center top",
-        end: "+=200px",
+        end: "+=300px",
         // markers: true,
-        scrub: 2.5,
+        scrub: 4,
       },
     });
 
@@ -54,77 +54,65 @@ const Framework = () => {
     tl.to(drawRef.current, {
       y: -300,
       x: -60,
-      ease: "power3.out", // ✅ Smoother ease
+      ease: "none", // ✅ Smoother ease
       duration: 3,
     })
       .to(
         dogRef.current,
-        { y: -210, x: -510, ease: "power3.out", duration: 2.8 },
+        { y: -210, x: -510, ease: "none", duration: 2.8 },
         "<"
       )
       .to(
         spsRef.current,
-        { y: -300, x: 190, ease: "power3.out", duration: 2.5 },
+        { y: -300, x: 190, ease: "none", duration: 2.5 },
         "<"
       )
       .to(
         bethRef.current,
-        { y: -230, x: 190, ease: "power3.out", duration: 2.5 },
+        { y: -230, x: 190, ease: "none", duration: 2.5 },
         "<"
       )
       .to(
         roomRef.current,
-        { y: -30, x: 400, ease: "power3.out", duration: 2.4 },
+        { y: -30, x: 400, ease: "none", duration: 2.4 },
         "<"
       )
       .to(
         handRef.current,
-        { y: 70, x: 700, ease: "power3.out", duration: 2.6 },
+        { y: 70, x: 700, ease: "none", duration: 2.6 },
         "<"
       )
       .to(
         polaroidRef.current,
-        { y: 140, x: 490, ease: "power3.out", duration: 3.2 },
+        { y: 140, x: 490, ease: "none", duration: 3.2 },
         "<"
       )
       .to(
         purpleRef.current,
-        { y: 130, x: -600, ease: "power3.out", duration: 3 },
+        { y: 130, x: -600, ease: "none", duration: 3 },
         "<"
       )
       .to(
         agreementRef.current,
-        { y: 430, x: -400, ease: "power3.out", duration: 3 },
+        { y: 430, x: -400, ease: "none", duration: 3 },
         "<"
       )
       .to(
         trinaRef.current,
-        { y: 430, x: -440, ease: "power3.out", duration: 3 },
+        { y: 430, x: -440, ease: "none", duration: 3 },
         "<"
       );
 
-    gsap.to(purpleRef.current, {
-      clipPath: "inset(0% 0% 100% 0%)",
-      ease: "power3.out",
-      duration: 2,
-      scrollTrigger: {
-        trigger: purpleRef.current,
-        start: "bottom 85%",
-        end: "top 20%",
-        scrub: 1,
-      },
-    });
-
     gsap.to(agreementRef.current, {
       clipPath: "inset(0% 0% 100% 0%)",
-      ease: "power3.out",
+      ease: "none",
       duration: 2.5,
       scrollTrigger: {
         trigger: agreementRef.current,
         start: "center top",
         end: "+=200",
         scrub: 2.5,
-        markers: true,
+        // markers: true,
       },
     });
 
