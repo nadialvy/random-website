@@ -74,3 +74,13 @@
   cursor: url("https://cdn.prod.website-files.com/66c503d081b2f012369fc5d2/6734f749e14a7a55057796c2_strat-0-cursor.svg"),
     auto;
 }
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
