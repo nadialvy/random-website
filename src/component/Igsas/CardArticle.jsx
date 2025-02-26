@@ -55,9 +55,9 @@ const CardArticle = () => {
   });
 
   return (
-    <div className="relative max-w-screen bg-white px-16 mt-24">
+    <div className="relative max-w-screen bg-white px-16 mt-24 max-lg:px-4 max-lg:mt-10">
       <p
-        className="text-[#002b04] overflow-hidden text-[64px] max-w-[1200px] mb-20 leading-[74px]"
+        className="text-[#002b04] overflow-hidden max-lg:text-[24px] max-lg:leading-none text-[64px] max-w-[1200px] mb-20 leading-[74px]"
         ref={textRef}
       >
         {text.map((el, i) => (
@@ -79,7 +79,7 @@ const CardArticle = () => {
       <div className="mt-10">
         <div className="w-full flex items-start justify-start gap-x-8">
           {/* First Card */}
-          <div className="w-1/2">
+          <div className="w-1/2 hidden lg:block">
             <div
               ref={pinFirstCardRef}
               className="rounded-3xl overflow-hidden bg-center bg-agricultural bg-cover h-[500px] bg-no-repeat"
@@ -109,7 +109,7 @@ const CardArticle = () => {
             </div>
           </div>
           {/* Second Card */}
-          <div className="w-1/2 h-[1300px]">
+          <div className="w-1/2 h-[1300px] max-lg:w-full">
             <div
               onMouseEnter={() => setIsSecCardHovered(true)}
               onMouseLeave={() => setIsSecCardHovered(false)}
@@ -118,10 +118,10 @@ const CardArticle = () => {
               <div className="flex flex-col justify-between h-full p-8 group-hover:opacity-0 ease-in transition-all duration-300">
                 <Factory size={36} color="white" />
                 <div className="flex flex-col justify-center items-start text-white gap-y-10">
-                  <p className="font-semibold text-[40px]">
+                  <p className="font-semibold text-[40px] max-lg:text-[24px]">
                     Endüstriyel Ürünler
                   </p>
-                  <p className="text-[26px] font-light">
+                  <p className="text-[26px] max-lg:text-[16px] font-light">
                     Geniş endüstriyel ürün yelpazemizle Türk sanayisine destek
                     olmaya devam ediyoruz.
                   </p>
@@ -140,10 +140,10 @@ const CardArticle = () => {
                 <div className="flex flex-col opacity-100 z-10 justify-start items-start gap-y-4 w-full h-full p-8">
                   <CircleHelp size={40} color="white" />
                   <div>
-                    <p className="text-white overflow-hidden font-semibold text-[48px]">
+                    <p className="text-white overflow-hidden font-semibold text-[48px] max-lg:text-[24px]">
                       Yenilikçi ve Minimalist
                     </p>
-                    <p className="font-light text-[20px] text-white">
+                    <p className="font-light text-[20px] max-lg:text-[16px] text-white">
                       Fikirden gerçeğe, inovatif çözümlerle sektöre yön
                       veriyoruz. anayiyi Güçlendiriyoruz, İşinizi Büyütüyoruz.
                       "İşletmenizi ileri taşıyacak çözümlerle tanışın. Fikirden
@@ -181,23 +181,25 @@ const CardArticle = () => {
             {/* Article */}
             <div className="w-full mt-12">
               <div>
-                <p className="text-[#002b04] overflow-hidden text-[64px]">Güncel Haberler</p>
+                <p className="text-[#002b04] overflow-hidden text-[64px] max-lg:text-[36px]">
+                  Güncel Haberler
+                </p>
                 <button
-                  className="bg-[#f0f2a4] hover:gap-x-16 duration-300 ease-in-out transition-all hover:bg-[#c4ae78] rounded-full px-6 py-5 flex justify-center items-center gap-x-8"
+                  className="bg-[#f0f2a4] hover:gap-x-16 duration-300 ease-in-out transition-all hover:bg-[#c4ae78] rounded-full px-6 max-lg:px-4 max-lg:py-1 py-5 flex justify-center items-center gap-x-8"
                   type="button"
                 >
-                  <p className="text-[24px]">TÜMÜ</p>
+                  <p className="text-[24px] max-lg:text-[16px]">TÜMÜ</p>
                   <ArrowRight size={24} className="text-[#002b04]" />
                 </button>
               </div>
               <div className="flex flex-col mt-12 justify-center items-center gap-6">
-                <div className="flex pr-8 justify-start items-start gap-4">
-                  <div className="w-1/2 h-[150px] rounded-xl">
+                <div className="flex max-lg:flex-col lg:pr-8 justify-start items-start gap-4">
+                  <div className="w-1/2 max-lg:w-full h-[150px] max-lg:h-[200px] max-lg:rounded-lg rounded-xl">
                     <div className="bg-cover w-full h-full bg-no-repeat bg-article1 hover:bg-[110%] transition-all duration-300 ease-in-out">
                       {}
                     </div>
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-1/2 max-lg:w-full">
                     <p className="text-[16px] text-[#002b04] font-semibold ">
                       18 Temmuz 2024 Perşembe
                     </p>
@@ -207,13 +209,13 @@ const CardArticle = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex pr-8 justify-start items-start gap-4">
-                  <div className="w-1/2 h-[150px] rounded-xl">
+                <div className="flex max-lg:flex-col lg:pr-8 justify-start items-start gap-4">
+                  <div className="w-1/2 max-lg:w-full h-[150px] max-lg:h-[200px] max-lg:rounded-lg rounded-xl">
                     <div className="bg-cover w-full h-full bg-no-repeat bg-article2 hover:bg-[110%] transition-all duration-300 ease-in-out">
                       {}
                     </div>
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-1/2 max-lg:w-full">
                     <p className="text-[16px] text-[#002b04] font-semibold ">
                       28 Haziran 2024 Cuma
                     </p>
@@ -223,13 +225,13 @@ const CardArticle = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex pr-8 justify-start items-start gap-4">
-                  <div className="w-1/2 h-[150px] rounded-xl">
+                <div className="flex max-lg:flex-col lg:pr-8 justify-start items-start gap-4">
+                  <div className="w-1/2 max-lg:w-full h-[150px] max-lg:h-[200px] max-lg:rounded-lg rounded-xl">
                     <div className="bg-cover w-full h-full bg-no-repeat bg-article3 hover:bg-[140%] transition-all duration-300 ease-in-out">
                       {}
                     </div>
                   </div>
-                  <div className="w-1/2">
+                  <div className="w-1/2 max-lg:w-full">
                     <p className="text-[16px] text-[#002b04] font-semibold ">
                       11 Samsun 2022 Perşembe
                     </p>

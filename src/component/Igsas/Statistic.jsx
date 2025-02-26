@@ -29,7 +29,7 @@ const Statistic = () => {
       },
       scrollTrigger: {
         trigger: firstNumberRef.current,
-        start: "top 30%",
+        start: "top 80%",
         toggleActions: "play none none none",
       },
     });
@@ -84,12 +84,12 @@ const Statistic = () => {
   return (
     <div className="relative h-[800px]">
       <div className="w-full bg-stats h-[700px] bg-center bg-cover bg-no-repeat bg-fixed overflow-hidden">
-        <div className="p-16 flex items-center justify-start gap-x-8">
-          <div className="w-3/5 flex flex-col gap-y-4">
-            <p className="text-[#1c4734] overflow-hidden text-[60px]">
+        <div className="lg:p-16 p-4 flex flex-col lg:flex-row items-center justify-start gap-x-8">
+          <div className="lg:w-3/5 w-full flex flex-col gap-y-4">
+            <p className="text-[#1c4734] overflow-hidden text-[32px] lg:text-[60px]">
               Rakamlarla İGSAŞ:
             </p>
-            <p className="text-[#1c4734] font-thin text-[30px]">
+            <p className="text-[#1c4734] font-thin text-[16px] lg:text-[30px]">
               Her yıl yükselen başarı ivmesiyle Türkiye’nin en büyük gübre
               üreticilerindendir.
             </p>
@@ -97,7 +97,7 @@ const Statistic = () => {
               <div className="flex flex-col gap-y-10">
                 <div className="flex flex-col items-start justify-start">
                   <p
-                    className="text-[96px] overflow-hidden leading-tight"
+                    className="lg:text-[96px] text-[24px] overflow-hidden leading-tight"
                     ref={firstNumberRef}
                   >
                     {firstNumberVal}+
@@ -108,7 +108,7 @@ const Statistic = () => {
                 </div>
                 <div className="flex flex-col items-start overflow-hidden justify-start">
                   <p
-                    className="text-[96px] overflow-hidden leading-tight"
+                    className="lg:text-[96px] text-[24px] overflow-hidden leading-tight"
                     ref={secNumberRef}
                   >
                     {secNumberVal}+
@@ -119,7 +119,7 @@ const Statistic = () => {
               <div className="flex flex-col gap-y-10">
                 <div className="flex flex-col items-start overflow-hidden justify-start">
                   <p
-                    className="text-[96px] overflow-hidden leading-tight"
+                    className="lg:text-[96px] text-[24px] overflow-hidden leading-tight"
                     ref={secNumberRef}
                   >
                     {secNumberVal}
@@ -128,7 +128,7 @@ const Statistic = () => {
                 </div>
                 <div className="flex flex-col items-start overflow-hidden justify-start">
                   <p
-                    className="text-[96px] overflow-hidden leading-tight"
+                    className="lg:text-[96px] text-[24px] overflow-hidden leading-tight"
                     ref={thirdNumberRef}
                   >
                     {thirdNumberVal}+
@@ -140,11 +140,11 @@ const Statistic = () => {
               </div>
             </div>
           </div>
-          <div className="w-2/5 py-[150px] overflow-hidden relative flex justify-center items-center">
+          <div className="lg:w-2/5 w-full lg:py-[150px] py-[140px] overflow-hidden relative flex justify-center items-center">
             <img
               src="https://www.igsas.com.tr/assets/images/icons/stats-item-01-tr.svg"
               alt="img"
-              className="absolute -top-[0] left-0 z-50 w-[70%]"
+              className="absolute top-[20%] lg:-top-[0] left-0 z-50 lg:w-[70%] w-[40%]"
             />
             <img
               src="https://www.igsas.com.tr/assets/images/icons/stats-item-02.svg"
@@ -159,7 +159,7 @@ const Statistic = () => {
             <motion.div
               ref={circleRef}
               style={{ rotate, clipPath: "circle(50% at 50% 50%)" }}
-              className="w-[360px] h-[360px] rounded-full bg-center bg-no-repeat bg-apaajadeh bg-cover"
+              className="lg:w-[360px] lg:h-[360px] w-[200px] h-[200px] rounded-full bg-center bg-no-repeat bg-apaajadeh bg-cover"
             />{" "}
           </div>
         </div>

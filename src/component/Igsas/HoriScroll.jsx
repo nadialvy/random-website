@@ -57,7 +57,7 @@ const HoriScroll = () => {
     // 6️. `animation: tween` → Menggunakan animasi GSAP yang sudah dibuat di atas
     ScrollTrigger.create({
       trigger: useRacesWrapperRef.current,
-      start: "top 2%",
+      start: () => (window.innerWidth >= 1024 ? "top 2%" : "top 12%"),
       end: `+=${amountToScroll}`,
       pin: true,
       animation: tween,
@@ -73,17 +73,17 @@ const HoriScroll = () => {
 
   return (
     <>
-      <div className="h-[20vh] bg-[#fefeff]" />
+      <div className="h-[20vh mt-24 pt-24 bg-[#fefeff]" />
 
-      <div ref={useRacesWrapperRef} className="overflow-hidden bg-[#002a04]">
+      <div ref={useRacesWrapperRef} className="w-screen mx-auto bg-[#002a04]">
         <div
           ref={useRacesRef}
           className="w-fit flex flex-nowrap font-archivo text-[#f8f9f4] leading-none"
         >
           <div className="pl-24 w-screen flex justify-center items-center">
             <div className="w-1/2 h-full flex flex-col justify-center">
-              <p className="font-medium overflow-hidden text-[128px]">1961</p>
-              <p className="text-[36px] overflow-hidden tracking-widest font-thin ">
+              <p className="font-medium overflow-hidden text-[24px] lg:text-[128px]">1961</p>
+              <p className="text-[16px] lg:text-[36px] overflow-hidden tracking-widest font-thin ">
                 Kütahya Azot Fabrikası kuruldu.
               </p>
             </div>
@@ -104,8 +104,8 @@ const HoriScroll = () => {
               />
             </div>
             <div className="w-1/2 h-full flex flex-col justify-center items-end">
-              <p className="font-medium overflow-hidden text-[128px]">1971</p>
-              <p className="text-[36px] overflow-hidden text-end tracking-widest font-thin ">
+              <p className="font-medium overflow-hidden text-[24px] lg:text-[128px]">1971</p>
+              <p className="text-[16px] lg:text-[36px] overflow-hidden text-end tracking-widest font-thin ">
                 İstanbul Gübre Sanayi A.Ş. (İGSAŞ) Kocaeli’nin Körfez ilçesinde
                 bir kamu kuruluşu olarak kuruldu.
               </p>
@@ -113,8 +113,8 @@ const HoriScroll = () => {
           </div>
           <div className="pl-24 w-screen flex justify-center items-center">
             <div className="w-1/2 h-full flex flex-col justify-center">
-              <p className="font-medium overflow-hidden text-[128px]">2004</p>
-              <p className="text-[36px] overflow-hidden tracking-widest font-thin ">
+              <p className="font-medium overflow-hidden text-[24px] lg:text-[128px]">2004</p>
+              <p className="text-[16px] lg:text-[36px] overflow-hidden tracking-widest font-thin ">
                 İGSAŞ; özelleştirme kapsamında, 18.03.2004 tarihinde Yıldızlar
                 Yatırım Holding A.Ş. tarafından satın alındı.{" "}
               </p>
@@ -136,8 +136,8 @@ const HoriScroll = () => {
               />
             </div>
             <div className="w-1/2 pr-20 h-full flex flex-col justify-center items-end">
-              <p className="font-medium overflow-hidden text-[128px]">2007</p>
-              <p className="text-[36px] overflow-hidden text-end tracking-widest font-thin ">
+              <p className="font-medium overflow-hidden text-[24px] lg:text-[128px]">2007</p>
+              <p className="text-[16px] lg:text-[36px] overflow-hidden text-end tracking-widest font-thin ">
                 İGSAŞ Tesisi'nde %34.5 N'lu (Azotlu) Pril Poröz Amonyum Nitrat
                 (PPAN) Üretim Ünitesi devreye girdi.
               </p>

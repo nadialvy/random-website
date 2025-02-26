@@ -141,61 +141,61 @@ const Framework = () => {
             ref={drawRef}
             src="/images/framework/section1-draw.webp"
             alt="draw"
-            className="z-30 w-[580px] absolute -top-[18%] pointer-events-none left-[17%] rotate-[2deg]"
+            className="z-30 w-[580px] max-lg:w-[70%] absolute -top-[18%] pointer-events-none left-[17%] rotate-[2deg]"
           />
           <img
             ref={dogRef}
             src="/images/framework/section1-dog.webp"
             alt="draw"
-            className="z-30 w-[500px] absolute top-[4%] -left-[1%]  -rotate-[4deg]"
+            className="z-30 w-[500px] max-lg:w-[50%] absolute top-[4%] -left-[1%]  -rotate-[4deg]"
           />
           <img
             ref={handRef}
             src="/images/framework/section1-hand.webp"
             alt="draw"
-            className="z-30 w-[400px] absolute top-[34%] -right-[2%] -rotate-[4deg]"
+            className="z-30 w-[400px] max-lg:w-[70%] absolute top-[34%] -right-[2%] -rotate-[4deg]"
           />
           <img
             ref={roomRef}
             src="/images/framework/section1-room.webp"
             alt="draw"
-            className="z-20 w-[340px] h-[340px] absolute top-0 -right-[10%] rotate-[16deg]"
+            className="z-20 w-[340px] max-lg:w-24 h-[340px] absolute top-0 -right-[10%] rotate-[16deg]"
           />
           <img
             ref={spsRef}
             src="/images/framework/section1-sps.webp"
             alt="draw"
-            className="z-30 w-[400px] absolute -top-[12%] right-[10%] -rotate-[2deg]"
+            className="z-30 w-[400px] max-lg:w-28 absolute -top-[12%] right-[10%] -rotate-[2deg]"
           />
           <img
             ref={bethRef}
             src="/images/framework/beth.png"
             alt="draw"
-            className="z-30 w-[140px] absolute top-[38%] right-[30%] -rotate-[2deg]"
+            className="z-30 w-[140px] max-lg:w-20 absolute top-[38%] right-[30%] -rotate-[2deg]"
           />
           <img
             ref={polaroidRef}
             src="/images/framework/section1-polaroid.webp"
             alt="draw"
-            className="z-30 w-[340px] absolute top-[58%] right-[12%] rotate-[8deg]"
+            className="z-30 w-[340px] max-lg:w-24 absolute top-[58%] right-[12%] rotate-[8deg]"
           />
           <img
             ref={agreementRef}
             src="/images/framework/section1-agreement.webp"
             alt="draw"
-            className="z-30 w-[340px] absolute top-[48%] left-[4%] rotate-[8deg]"
+            className="z-30 w-[340px] max-lg:w-24 absolute top-[48%] left-[4%] rotate-[8deg]"
           />
           <img
             ref={trinaRef}
             src="/images/framework/trina.png"
             alt="draw"
-            className="z-30 w-[140px] absolute top-[40%] left-[20%] rotate-[8deg]"
+            className="z-30 w-[140px] max-lg:w-20 absolute top-[40%] left-[20%] rotate-[8deg]"
           />
           <img
             ref={purpleRef}
             src="/images/framework/section1-purple.webp"
             alt="draw"
-            className="z-30 w-[340px] absolute top-[60%] left-[18%]"
+            className="z-30 w-[340px] max-lg:w-24 absolute top-[60%] left-[18%]"
           />
         </div>
         <div className="relative overflow-hidden flex flex-col w-full">

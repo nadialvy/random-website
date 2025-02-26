@@ -127,7 +127,7 @@ const CanvasDraw = () => {
       <div className="z-30 overflow-hidden relative w-full h-[99vh] draw">
         {/* asset start */}
         <div className="flex justify-between items-center">
-          <p className="z-10 text-white pointer-events-none text-[130px] overflow-hidden font-semibold absolute top-[36%] left-[15%]">
+          <p className="z-10 text-white pointer-events-none text-[130px] max-lg:text-[48px] overflow-hidden font-semibold absolute top-[36%] max-lg:top-[40%] left-[15%]">
             Framework
           </p>
           <div className="flex flex-col gap-y-3 bg-white p-2 rounded-xl absolute top-[35.5%] z-20 right-[2%] items-center justify-center">
@@ -160,14 +160,14 @@ const CanvasDraw = () => {
         <img
           src="/images/framework/blue.png"
           alt="blue"
-          className="absolute top-[10%] right-[35%] pointer-events-none z-10 w-40"
+          className="absolute top-[10%] right-[35%] max-lg:w-24 pointer-events-none z-10 w-40"
           data-aos="zoom-in"
           duration="200"
         />
         <img
           src="/images/framework/star.png"
           alt="blue"
-          className="absolute top-[50%] left-[10%] pointer-events-none z-10 w-28 "
+          className="absolute top-[50%] max-lg:w-20 left-[10%] pointer-events-none z-10 w-28 "
           data-aos="zoom-in"
           duration="300"
           delay="100"
@@ -175,14 +175,14 @@ const CanvasDraw = () => {
         <img
           src="/images/framework/smile.png"
           alt="blue"
-          className="absolute top-[34%] left-[20%] pointer-events-none z-10 w-20"
+          className="absolute max-lg:hidden top-[34%] left-[20%] pointer-events-none z-10 w-20"
           data-aos="zoom-in"
           duration="400"
         />
         <img
           src="/images/framework/cloud.png"
           alt="blue"
-          className="absolute top-[30%] right-[10%] pointer-events-none z-10 w-28"
+          className="absolute top-[30%] max-lg:w-12 right-[10%] pointer-events-none z-10 w-28"
           data-aos="zoom-in"
           duration="300"
           delay="20"
@@ -190,7 +190,7 @@ const CanvasDraw = () => {
         <img
           src="/images/framework/lamp.png"
           alt="blue"
-          className="absolute top-[56%] right-[19%] pointer-events-none z-10 w-52"
+          className="absolute max-lg:hidden top-[56%] right-[19%] pointer-events-none z-10 w-52"
           data-aos="zoom-in"
           duration="300"
         />
@@ -199,9 +199,9 @@ const CanvasDraw = () => {
         {/* line grid start */}
         <div className="line-container">
           <div className="vertical-line-1 h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[14.9%] bg-opacity-60 z-0" />
-          <div className="vertical-line-2 h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[42.3%] bg-opacity-60 z-0" />
+          <div className="vertical-line-2 h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[42.3%] bg-opacity-60 z-0 max-lg:hidden" />
           <div className="horizontal-line-1 h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[41.5%] bg-opacity-60 z-0" />
-          <div className="horizontal-line-2 h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[56.5%] bg-opacity-60 z-0" />
+          <div className="horizontal-line-2 h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[56.5%] bg-opacity-60 z-0 max-lg:top-[50%]" />
         </div>
         {/* line grid end */}
 

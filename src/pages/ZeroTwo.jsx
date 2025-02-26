@@ -178,7 +178,7 @@ export default function ZeroTwo() {
         </div>
         <div
           ref={contactMeRef}
-          className="w-[100px] z-0 absolute bottom-[32%] left-[48%] h-[100px] rounded-[20px] bg-[#F5E3D9]"
+          className="w-[100px] z-0 absolute bottom-[32%] left-[48%] h-[100px] rounded-[20px] bg-[#D36D72]"
         >
           {}
         </div>
