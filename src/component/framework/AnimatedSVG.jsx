@@ -39,7 +39,7 @@ const AnimatedSVG = () => {
   return (
     <div
       ref={svgContainerRef}
-      className="relative w-full h-[78px] overflow-hidden"
+      className="relative w-full lg:h-[78px] h-[50px] overflow-hidden"
     >
       <div className="absolute overflow-hidden top-0 left-0 w-full h-full">
         {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}

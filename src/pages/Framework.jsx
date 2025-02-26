@@ -116,21 +116,23 @@ const Framework = () => {
     <SmoothScrolling>
       <div className="framework">
         <CanvasDraw />
-        <div className="relative -mt-1 z-50 w-full overflow-visible ">
-          <div className="min-h-[110vh] w-full z-0 relative">
+        <div className="relative -mt-1 z-50 w-full overflow-visible">
+          <div className="lg:min-h-[110vh] min-h-[100vh] w-full z-0 relative">
             <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[30.5%] bg-opacity-60 z-0" />
             <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[30.6%] bg-opacity-60 z-0" />
             <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[40%] bg-opacity-60 z-0" />
             <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[60%] bg-opacity-60 z-0" />
-            <div className="flex flex-col -ml-[8%] mt-[23%] justify-center items-center">
+            <div className="flex flex-col -ml-[8%] lg:mt-[23%] mt-[30%] justify-center items-center">
               <div className="flex flex-col  text-[40px] font-semibold">
-                <p className="text-[64px] overflow-hidden">How we all</p>
-                <p className="-mt-11 text-[64px] overflow-hidden">
+                <p className="lg:text-[64px] text-[32px] overflow-hidden">
+                  How we all
+                </p>
+                <p className="lg:-mt-11 lg:text-[64px] text-[32px] overflow-hidden">
                   work today is
                 </p>
-                <div className="-mt-16 p-6 text-[64px] relative overflow-hidden">
+                <div className="lg:-mt-16 -mt-8 p-6 lg:text-[64px] text-[32px] relative overflow-hidden">
                   <p className="overflow-hidden">messy</p>
-                  <div className=" -mt-20 -ml-[50%] ">
+                  <div className="-mt-[26%]  lg:-mt-20 -ml-[38%] lg:-ml-[50%] ">
                     <AnimatedSVG />
                   </div>
                 </div>
@@ -147,25 +149,25 @@ const Framework = () => {
             ref={dogRef}
             src="/images/framework/section1-dog.webp"
             alt="draw"
-            className="z-30 w-[500px] max-lg:w-[50%] absolute top-[4%] -left-[1%]  -rotate-[4deg]"
+            className="z-30 w-[500px] max-lg:w-[44%] absolute lg:top-[4%] -top-[2%] lg:-left-[1%] -left-[14%]  -rotate-[4deg]"
           />
           <img
             ref={handRef}
             src="/images/framework/section1-hand.webp"
             alt="draw"
-            className="z-30 w-[400px] max-lg:w-[70%] absolute top-[34%] -right-[2%] -rotate-[4deg]"
+            className="z-30 w-[400px] max-lg:w-[50%] absolute top-[34%] -right-[2%] -rotate-[4deg]"
           />
           <img
             ref={roomRef}
             src="/images/framework/section1-room.webp"
             alt="draw"
-            className="z-20 w-[340px] max-lg:w-24 h-[340px] absolute top-0 -right-[10%] rotate-[16deg]"
+            className="z-20 w-[340px] max-lg:w-36 lg:h-[340px] h-[200px] absolute lg:top-0 top-[10%] -right-[8%] lg:-right-[10%] rotate-[16deg]"
           />
           <img
             ref={spsRef}
             src="/images/framework/section1-sps.webp"
             alt="draw"
-            className="z-30 w-[400px] max-lg:w-28 absolute -top-[12%] right-[10%] -rotate-[2deg]"
+            className="z-30 w-[400px] max-lg:w-48 absolute -right-[15%] -top-[12%] lg:right-[10%] -rotate-[2deg]"
           />
           <img
             ref={bethRef}
@@ -183,7 +185,7 @@ const Framework = () => {
             ref={agreementRef}
             src="/images/framework/section1-agreement.webp"
             alt="draw"
-            className="z-30 w-[340px] max-lg:w-24 absolute top-[48%] left-[4%] rotate-[8deg]"
+            className="z-30 w-[340px] max-lg:w-48 absolute top-[30%] lg:top-[48%] -left-[12%] lg:left-[4%] rotate-[8deg]"
           />
           <img
             ref={trinaRef}
@@ -195,29 +197,31 @@ const Framework = () => {
             ref={purpleRef}
             src="/images/framework/section1-purple.webp"
             alt="draw"
-            className="z-30 w-[340px] max-lg:w-24 absolute top-[60%] left-[18%]"
+            className="z-30 w-[340px] max-lg:w-44 absolute lg:top-[60%] top-[50%] lg:left-[18%] left-[4%]"
           />
         </div>
         <div className="relative overflow-hidden flex flex-col w-full">
           <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[0%] bg-opacity-60 z-0" />
-          <div className="h-[98%] w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[5.5%] bg-opacity-60 z-0" />
+          <div className="h-[98%] w-[1px] bg-[#307fff] pointer-events-none hidden lg:absolute top-0 bottom-0 left-[5.5%] bg-opacity-60 z-0" />
           <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[7.5%] bg-opacity-60 z-0" />
           <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[12.6%] bg-opacity-60 z-0" />
           <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[18%] bg-opacity-60 z-0" />
           <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[30%] bg-opacity-60 z-0" />
           {/* div between img */}
-          <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[98%] bg-opacity-60 z-0" />
-          <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] right-[27%] bg-opacity-60 z-0" />
-          <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] right-[46%] bg-opacity-60 z-0" />
-          <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] left-[33.5%] bg-opacity-60 z-0" />
-          <div className="h-[1px] w-[79.9%] bg-[#307fff] pointer-events-none absolute left-[12.6%] right-0 top-[64%] bg-opacity-60 z-0" />
+          <div className="hidden lg:block">
+            <div className="h-[1px] w-full bg-[#307fff] pointer-events-none absolute left-0 right-0 top-[98%] bg-opacity-60 z-0" />
+            <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] right-[27%] bg-opacity-60 z-0" />
+            <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] right-[46%] bg-opacity-60 z-0" />
+            <div className="h-[68%] w-[1px] bg-[#307fff] pointer-events-none absolute top-[30%] left-[33.5%] bg-opacity-60 z-0" />
+            <div className="h-[1px] w-[79.9%] bg-[#307fff] pointer-events-none absolute left-[12.6%] right-0 top-[64%] bg-opacity-60 z-0" />
+          </div>
 
-          <div className="flex flex-col ml-[13%] text-[36px] font-semibold items-start justify-start">
+          <div className="flex flex-col max-lg:min-h-[30vh] ml-[13%] text-[30px] lg:text-[36px] font-semibold items-start justify-start">
             <p className="">Dropbox is designed</p>
             <p className="-my-4">to simplify the frenzy</p>
             <p>of modern work</p>
           </div>
-          <div className="flex flex-col ml-[12.7%] mt-[6%] mr-[7.5%]">
+          <div className="hidden lg:flex flex-col ml-[12.7%] mt-[6%] mr-[7.5%]">
             <div className="flex justify-between items-start">
               <div className="w-1/4 p-4 justify-between flex flex-col items-center">
                 <img
@@ -304,7 +308,7 @@ const Framework = () => {
             </div>
           </div>
         </div>
-        <div className="relative min-h-[100vh] overflow-hidden flex flex-col w-full">
+        <div className="hidden relative min-h-[100vh] overflow-hidden lg:flex flex-col w-full">
           <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[7.5%] bg-opacity-60 z-0" />
           <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 right-[32%] bg-opacity-60 z-0" />
           <div className="h-full w-[1px] bg-[#307fff] pointer-events-none absolute top-0 bottom-0 left-[12.6%] bg-opacity-60 z-0" />
