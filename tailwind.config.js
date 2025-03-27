@@ -30,6 +30,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
+        roboto: ["Roboto Mono", "monospace"],
       },
       animation: {
         "spin-slow": "spin 8s linear infinite",

@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -10,6 +11,10 @@
 * {
   font-family: "Prompt", sans-serif;
   overflow-x: hidden;
+}
+
+.greetings div {
+  font-family: "Roboto Mono", monospace !important;
 }
 
 .merritext {
@@ -81,6 +86,7 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 0px;
-    background: transparent; /* make scrollbar transparent */
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
+
