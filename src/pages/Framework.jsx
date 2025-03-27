@@ -52,7 +52,6 @@ const Framework = () => {
       },
     });
 
-    // ✅ Fixing Animation Feel
     tl.to(drawRef.current, {
       y: -300,
       x: -60,
@@ -102,15 +101,14 @@ const Framework = () => {
         start: "center top",
         end: "+=200",
         scrub: 2.5,
-        // markers: true,
       },
     });
 
     return () => {
       // biome-ignore lint/complexity/noForEach: <explanation>
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill()); // Cleanup on unmount
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
-  }, []); //
+  }, []); 
 
   return (
     <SmoothScrolling>
@@ -155,13 +153,13 @@ const Framework = () => {
             ref={handRef}
             src="/images/framework/section1-hand.webp"
             alt="draw"
-            className="z-30 w-[400px] max-lg:w-[50%] absolute top-[34%] -right-[2%] -rotate-[4deg]"
+            className="z-30 w-[400px] max-lg:w-[40%] absolute top-[34%] -right-[2%] -rotate-[4deg]"
           />
           <img
             ref={roomRef}
             src="/images/framework/section1-room.webp"
             alt="draw"
-            className="z-20 w-[340px] max-lg:w-36 lg:h-[340px] h-[200px] absolute lg:top-0 top-[10%] -right-[8%] lg:-right-[10%] rotate-[16deg]"
+            className="z-20 w-[340px] max-lg:w-32 lg:h-[340px] h-[200px] absolute lg:top-0 top-[10%] -right-[10%] lg:-right-[10%] rotate-[16deg]"
           />
           <img
             ref={spsRef}
@@ -217,9 +215,7 @@ const Framework = () => {
           </div>
 
           <div className="flex flex-col max-lg:min-h-[30vh] ml-[13%] text-[30px] lg:text-[36px] font-semibold items-start justify-start">
-            <p className="">Dropbox is designed</p>
-            <p className="-my-4">to simplify the frenzy</p>
-            <p>of modern work</p>
+            <p className="leading-none mb-0">Dropbox is designed to simplify the frenzy of modern work</p>
           </div>
           <div className="hidden lg:flex flex-col ml-[12.7%] mt-[6%] mr-[7.5%]">
             <div className="flex justify-between items-start">

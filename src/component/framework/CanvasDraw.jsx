@@ -127,7 +127,7 @@ const CanvasDraw = () => {
       <div className="z-30 overflow-hidden relative w-full h-[99vh] draw">
         {/* asset start */}
         <div className="flex justify-between items-center">
-          <p className="z-10 text-white pointer-events-none text-[130px] max-lg:text-[48px] overflow-hidden font-semibold absolute top-[36%] max-lg:top-[40%] left-[15%]">
+          <p className="z-10 text-white pointer-events-none text-[130px] max-lg:text-[38px] overflow-hidden font-semibold absolute top-[36%] max-lg:top-[40%] left-[15%]">
             Framework
           </p>
           <div className="flex flex-col gap-y-3 bg-white p-2 rounded-xl absolute top-[35.5%] z-20 right-[2%] items-center justify-center">
