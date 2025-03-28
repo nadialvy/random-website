@@ -85,7 +85,9 @@ const HoriScroll = () => {
         >
           <div className="pl-24 w-screen flex justify-center items-center">
             <div className="w-1/2 h-full flex flex-col justify-center">
-              <p className="font-medium overflow-hidden text-[24px] lg:text-[112px]">1961</p>
+              <p className="font-medium overflow-hidden text-[24px] lg:text-[112px]">
+                1961
+              </p>
               <p className="text-[16px] lg:text-[32px] overflow-hidden tracking-widest font-thin ">
                 Kütahya Azot Fabrikası kuruldu.
               </p>
