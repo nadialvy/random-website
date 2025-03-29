@@ -54,7 +54,6 @@ export default function Greetings() {
   const cursorRef = useRef(null);
   const circleRef = useRef(null);
   const scaleAnim = useRef(gsap.timeline({ paused: true }));
-  // const project1 = useRef(null);
 
   useEffect(() => {
     const controller = new ScrollMagic.Controller();
@@ -63,10 +62,9 @@ export default function Greetings() {
 
     if (title) {
       new ScrollMagic.Scene({
-        triggerElement: title, // Pin title saat trigger terlihat
-        triggerHook: 0.4, // Pin saat 90% viewport
-        duration: 200, // Pin selama 200px scroll
-        markers: true, // Untuk debugging
+        triggerElement: title,
+        triggerHook: 0.4,
+        duration: 200,
       })
         .setPin(title)
         .addTo(controller);
@@ -142,29 +140,128 @@ export default function Greetings() {
   }, []);
 
   useEffect(() => {
-    // GSAP animation setup
     gsap.set(".card", {
       position: "absolute",
       top: 0,
       left: 0,
     });
 
-    gsap.to(".card", {
-      yPercent: -100,
-      stagger: 0.5,
-      ease: "none",
+    const stackTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".cards-container",
         start: "top top",
-        end: "+=300%",
-        scrub: true,
+        end: "+=270%",
+        scrub: 1,
         pin: true,
-        markers: true,
+        pinSpacing: true,
+        preventOverlaps: true,
+        fastScrollEnd: true,
+        onUpdate: (self) => {
+          if (self.progress >= 0.8) {
+            gsap.set(".cards-container", {
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 50,
+            });
+          }
+        },
+        onLeaveBack: () => {
+          gsap.set(".cards-container", {
+            clearProps: "all",
+          });
+        },
+      },
+    });
+
+    stackTimeline
+      .to(".card", {
+        yPercent: -100,
+        stagger: 0.5,
+        ease: "none",
+      })
+      .to(".cards-container", {
+        yPercent: -50,
+        duration: 1,
+      });
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: ".wheel-container",
+        start: "top bottom",
+        end: "bottom bottom",
+        scrub: 1,
+        onEnter: () => {
+          if (stackTimeline.scrollTrigger.progress === 1) {
+            gsap.set(".cards-container", {
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              zIndex: 50,
+            });
+          }
+        },
       },
     });
 
     return () => {
-      // biome-ignore lint/complexity/noForEach: <explanation>
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
+  const wheelRef = useRef(null);
+  const headerRef = useRef(null);
+
+  useEffect(() => {
+    if (!wheelRef.current) return;
+
+    const wheel = wheelRef.current;
+    const images = gsap.utils.toArray(".wheel__card");
+
+    function setup() {
+      const radius = wheel.offsetWidth / 2.6;
+      const center = wheel.offsetWidth / 2;
+      const total = images.length;
+      const slice = (2 * Math.PI) / total;
+
+      images.forEach((item, i) => {
+        const angle = i * slice;
+        const x = center + radius * Math.sin(angle);
+        const y = center - radius * Math.cos(angle);
+
+        gsap.set(item, {
+          // biome-ignore lint/style/useTemplate: <explanation>
+          rotation: angle + "_rad", // Convert to degrees
+          xPercent: -50,
+          yPercent: -50,
+          x: x,
+          y: y,
+        });
+      });
+    }
+
+    setup();
+    window.addEventListener("resize", setup);
+
+    gsap.to(wheel, {
+      rotate: () => -180,
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".wheel-container",
+        start: "top center",
+        end: "bottom+=100% center",
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+        snap: 1 / images.length,
+      },
+    });
+
+    return () => {
+      window.removeEventListener("resize", setup);
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -194,7 +291,7 @@ export default function Greetings() {
           </div>
 
           {/* about section */}
-          <div className="flex flex-col text-[15px] gap-y-4 mt-12 cursor-default">
+          <div className="flex flex-col text-[15px] lg:text-[16px] gap-y-4 mt-12 cursor-default">
             <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
               About Me
             </p>
@@ -262,8 +359,7 @@ export default function Greetings() {
                       altText="javascript"
                       label="Javascript"
                     />
-                    <div className="hidden md:block w-[10px]" />
-                    
+                    <div className="hidden md:block md:w-[10px] lg:w-[10%]" />
                     <TechStackItem
                       icon="/images/stack/go.svg"
                       altText="golang"
@@ -369,7 +465,7 @@ export default function Greetings() {
                 A glimpse of the stuffs I’ve built along the way!
               </p>
             </div>
-            <div className="h-[310vh]">
+            <div className="h-[220vh] z-50">
               <div className="cards-container">
                 <ul id="cards" className=" p-6">
                   <li className="card rounded-3xl max-lg:rounded-xl" id="card1">
@@ -396,14 +492,67 @@ export default function Greetings() {
                       <h2>Card 4</h2>
                     </div>
                   </li>
+                  <li className="card rounded-3xl max-lg:rounded-xl" id="card5">
+                    <div className="card-body shadow-md">
+                      <p>halooo hehe</p>
+                      <h2>Card 5</h2>
+                    </div>
+                  </li>
+                  <li className="card rounded-3xl max-lg:rounded-xl" id="card6">
+                    <div className="card-body shadow-md">
+                      <p>halooo hehe</p>
+                      <h2>Card 6</h2>
+                    </div>
+                  </li>
+                  <li className="card rounded-3xl max-lg:rounded-xl" id="card7">
+                    <div className="card-body shadow-md">
+                      <p>halooo hehe</p>
+                      <h2>Card 7</h2>
+                    </div>
+                  </li>
+                  <li className="card rounded-3xl max-lg:rounded-xl" id="card8">
+                    <div className="card-body shadow-md">
+                      <p>halooo hehe</p>
+                      <h2>Card 8</h2>
+                    </div>
+                  </li>
                 </ul>
               </div>
+              <li className="font-roboto mt-48">And many more to come 👀!</li>
             </div>
           </div>
-          <div className="font-roboto debug-red">And many more to come 👀!</div>
-          <div className="h-screen debug-blue">{}</div>
+
+          <div className="wheel-container z-0 pt-12">
+            aa
+            <div
+              className="header absolute -top-11 left-0 pt-12"
+              ref={headerRef}
+            >
+              <p className="font-roboto text-[24px] font-bold">What else?</p>
+              <p className="font-roboto">
+                Lets collaborate, discuss potential opportunities, or connect
+                with me.
+              </p>
+              <p className="font-roboto">You can find me on:</p>
+            </div>
+            <div className="wheel" ref={wheelRef}>
+              {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num) => (
+                <div
+                  key={num}
+                  className="wheel__card"
+                  // onClick={handleCardClick}
+                >
+                  <img
+                    src={`/images/socialmedia/${num}.png`}
+                    alt={`Card ${num}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="-mb-[56%] h-10 bg-pink-200">hehe</div>
         </div>
-        <>
+        <div>
           <div
             ref={cursorRef}
             className="fixed top-0 left-0 w-3 h-3 bg-yellow-400 rounded-full pointer-events-none z-[9999]"
@@ -412,7 +561,7 @@ export default function Greetings() {
             ref={circleRef}
             className="fixed -top-[2%] -left-[1.8%] w-12 h-12 border border-black rounded-full pointer-events-none z-[9998]"
           />
-        </>
+        </div>
       </div>
     </SmoothScrolling>
   );
