@@ -6,6 +6,7 @@ import TechStackItem from "../component/greetings/TechStackItem";
 import ScrollMagic from "scrollmagic";
 import projectData from "../constant/projectData";
 import ProjectCard from "../component/greetings/ProjectCard";
+import SocialLink from "../component/greetings/SocialLink";
 import socialMediaLinks from "../constant/socialMediaLink";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -487,22 +488,55 @@ export default function Greetings() {
                 </ul>
               </div>
             </div>
-            <li className="font-roboto">And many more to come 👀!</li>
           </div>
 
           {/* contact */}
-          <div className="wheel-container mt-48 z-50 hover:cursor-pointer pt-12">
-            aa
+          <div className="wheel-container lg:mt-48 z-50 hover:cursor-pointer -mt-12 lg:pt-12">
             <div
               className="header absolute -top-11 left-0 pt-12"
               ref={headerRef}
             >
-              <p className="font-roboto text-[24px] font-bold">What else?</p>
-              <p className="font-roboto">
+              <p className="font-roboto max-lg:text-[18px] text-[24px] font-bold">
+                What else?
+              </p>
+              <p className="font-roboto max-lg:text-[14px]">
                 Lets collaborate, discuss potential opportunities, or connect
                 with me.
               </p>
               <p className="font-roboto">You can find me on:</p>
+              <div className="flex mt-2 w-full gap-2 flex-wrap justify-start items-start lg:hidden">
+                <SocialLink
+                  href="mailto:nadialovely1803@gmail.com"
+                  icon="/images/socialmedia/2.png"
+                  alt="Gmail"
+                  label="nadialovely1803@gmail.com"
+                />
+                <SocialLink
+                  href="https://github.com/nadialvy"
+                  icon="/images/socialmedia/1.png"
+                  alt="GitHub"
+                  label="nadialvy"
+                />
+                <SocialLink
+                  href="https://www.linkedin.com/in/nadia-lovely"
+                  icon="/images/socialmedia/4.png"
+                  alt="Linkedin"
+                  label="Nadia Lovely"
+                />
+                <SocialLink
+                  href="https://www.instagram.com/nadlvy_"
+                  icon="/images/socialmedia/3.png"
+                  alt="Instagram"
+                  label="nadlvy_"
+                />
+
+                <SocialLink
+                  href="https://medium.com/@daisythoughts"
+                  icon="/images/socialmedia/5.png"
+                  alt="Medium"
+                  label="daisythoughts"
+                />
+              </div>
             </div>
             <div className="wheel z-50" ref={wheelRef}>
               {[...Array(10)].map((_, num) => (
@@ -523,17 +557,19 @@ export default function Greetings() {
               ))}
             </div>
           </div>
-          <div className="-mb-[56%] h-10 bg-pink-200">hehe</div>
+          <div className="-mb-[200%] lg:-mb-[56%] z-50 h-10 bg-pink-200">
+            hehe
+          </div>
         </div>
 
         <div>
           <div
             ref={cursorRef}
-            className="fixed top-0 left-0 w-3 h-3 bg-yellow-400 rounded-full pointer-events-none z-[9999]"
+            className="fixed hidden lg:block top-0 left-0 w-3 h-3 bg-yellow-400 rounded-full pointer-events-none z-[9999]"
           />
           <div
             ref={circleRef}
-            className="fixed -top-[2%] -left-[1.8%] w-12 h-12 border border-black rounded-full pointer-events-none z-[9998]"
+            className="fixed hidden lg:block -top-[2%] -left-[1.8%] w-12 h-12 border border-black rounded-full pointer-events-none z-[9998]"
           />
         </div>
       </div>

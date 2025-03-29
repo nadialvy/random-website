@@ -15,7 +15,7 @@
 
 .greetings * {
   font-family: "Roboto Mono", monospace !important;
-  cursor: none !important;
+  /* cursor: none !important; */
 }
 
 .merritext {
@@ -230,5 +230,15 @@ html {
 	pointer-events: none;
 	z-index: 999;
 	cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .wheel {
+    display: none !important;
+  }
+
+  .wheel-container{
+    /* height: 1000px; */
+  }
 }
 
