@@ -15,6 +15,7 @@
 
 .greetings * {
   font-family: "Roboto Mono", monospace !important;
+  cursor: none !important;
 }
 
 .merritext {
@@ -23,13 +24,13 @@
 
 .framework {
   font-family: "Prompt", sans-serif;
-  overflow-y: auto; /* Prevents forced scrolling */
-  scrollbar-width: none; /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE & Edge */
+  overflow-y: auto;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
 }
 
 .framework::-webkit-scrollbar {
-  display: none; /* Hide scrollbar for Chrome, Safari, Opera */
+  display: none; 
   width: 0;
   height: 0;
 }
@@ -42,8 +43,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  pointer-events: none; /* Prevents blocking clicks */
-  transition: transform 0.1s ease-out; /* Smooth animation */
+  pointer-events: none;
+  transition: transform 0.1s ease-out; 
   z-index: 50;
 }
 
@@ -87,27 +88,25 @@ html {
 
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent;
 }
-
-/* ...existing code... */
 
 .cards-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Prevent scrollbar issues */
+  overflow: hidden; 
   z-index: 50;
 }
 
 #cards {
   position: relative;
   width: 100%;
-  max-width: 1000px; /* Limit maximum width */
-  height: 100%; /* Fixed height for cards container */
+  max-width: 1000px; 
+  height: 100%; 
   margin: 0 auto;
   list-style: none;
   padding: 0;
@@ -125,7 +124,6 @@ html {
 
 /* Card colors */
 .card:nth-child(1) {
-  /* background-color: #9679c2; */
   z-index: 50;
 }
 
@@ -208,6 +206,7 @@ html {
 	max-height: 800px;
 	left: 50%;
 	transform: translateX(-50%);
+  overflow: visible;
 }
 
 .wheel__card {
@@ -218,6 +217,12 @@ html {
 	max-width: 200px;
 	aspect-ratio: 1 / 1;
 	cursor: pointer;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.wheel__card:hover{
+  cursor: pointer !important;
 }
 
 .wheel__card img {
@@ -227,26 +232,3 @@ html {
 	cursor: pointer;
 }
 
-/* SCROLL DOWN */
-.scroll-down {
-	position: fixed;
-	bottom: 20px;
-	left: 50%;
-	transform: translate(-50%, 0);
-	color: rgb(154, 102, 102);
-	font-weight: 400;
-	text-transform: uppercase;
-	font-size: 14px;
-	overflow: visible;
-}
-
-.scroll-down .arrow {
-	position: relative;
-	top: 0px;
-	margin: 0 auto;
-	width: 15px;
-	height: 15px;
-	filter: invert(1);
-	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik00ODMuMiwxOTIuMmMtMjAuNS0yMC41LTUzLjUtMjAuOC03My43LTAuNkwyNTcsMzQ0LjFMMTA0LjUsMTkxLjZjLTIwLjItMjAuMi01My4yLTE5LjktNzMuNywwLjYKCWMtMjAuNSwyMC41LTIwLjgsNTMuNS0wLjYsNzMuN2wxOTAsMTkwYzEwLjEsMTAuMSwyMy40LDE1LjEsMzYuOCwxNWMxMy4zLDAuMSwyNi43LTQuOSwzNi44LTE1bDE5MC0xOTAKCUM1MDMuOSwyNDUuNyw1MDMuNywyMTIuNyw0ODMuMiwxOTIuMnoiLz4KPC9zdmc+);
-	background-size: contain;
-}

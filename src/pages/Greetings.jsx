@@ -6,6 +6,7 @@ import TechStackItem from "../component/greetings/TechStackItem";
 import ScrollMagic from "scrollmagic";
 import projectData from "../constant/projectData";
 import ProjectCard from "../component/greetings/ProjectCard";
+import socialMediaLinks from "../constant/socialMediaLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -165,6 +166,14 @@ export default function Greetings() {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
+              zIndex: 40,
+            });
+
+            gsap.set(".projects-container", {
+              zIndex: 0,
+            });
+          } else {
+            gsap.set(".projects-container", {
               zIndex: 50,
             });
           }
@@ -209,6 +218,7 @@ export default function Greetings() {
     });
 
     return () => {
+      // biome-ignore lint/complexity/noForEach: <explanation>
       ScrollTrigger.getAll().forEach((t) => t.kill());
       document.body.style.overflow = "auto";
     };
@@ -264,6 +274,7 @@ export default function Greetings() {
 
     return () => {
       window.removeEventListener("resize", setup);
+      // biome-ignore lint/complexity/noForEach: <explanation>
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
@@ -457,8 +468,7 @@ export default function Greetings() {
           </div>
 
           {/* projects */}
-          {/* projects section */}
-          <div className="w-full mt-12">
+          <div className="w-full projects-container mt-12 mb-48">
             <div className="projectTitle mb-12">
               <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
                 Projects
@@ -467,20 +477,21 @@ export default function Greetings() {
                 A glimpse of the stuffs I’ve built along the way!
               </p>
             </div>
-            <div className="h-[220vh] z-50">
+            <div className="h-[180vh] z-50">
               <div className="cards-container">
-                <ul id="cards" className=" p-6">
+                <ul id="cards" className="p-6">
                   {projectData.map((project, index) => (
                     // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                     <ProjectCard key={index} {...project} />
                   ))}
                 </ul>
               </div>
-              <li className="font-roboto mt-48">And many more to come 👀!</li>
             </div>
+            <li className="font-roboto">And many more to come 👀!</li>
           </div>
 
-          <div className="wheel-container z-0 pt-12">
+          {/* contact */}
+          <div className="wheel-container mt-48 z-50 hover:cursor-pointer pt-12">
             aa
             <div
               className="header absolute -top-11 left-0 pt-12"
@@ -493,16 +504,20 @@ export default function Greetings() {
               </p>
               <p className="font-roboto">You can find me on:</p>
             </div>
-            <div className="wheel" ref={wheelRef}>
-              {[1, 2, 3, 4, 5, 1, 2, 3, 4, 5].map((num) => (
+            <div className="wheel z-50" ref={wheelRef}>
+              {[...Array(10)].map((_, num) => (
+                // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
                 <div
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                   key={num}
                   className="wheel__card"
-                  // onClick={handleCardClick}
+                  onClick={() =>
+                    window.open(socialMediaLinks[num % 5], "_blank")
+                  }
                 >
                   <img
-                    src={`/images/socialmedia/${num}.png`}
-                    alt={`Card ${num}`}
+                    src={`/images/socialmedia/${(num % 5) + 1}.png`} // Ulangi 1-5
+                    alt={`Card ${(num % 5) + 1}`}
                   />
                 </div>
               ))}
@@ -510,6 +525,7 @@ export default function Greetings() {
           </div>
           <div className="-mb-[56%] h-10 bg-pink-200">hehe</div>
         </div>
+
         <div>
           <div
             ref={cursorRef}

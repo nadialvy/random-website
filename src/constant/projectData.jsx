@@ -43,7 +43,7 @@ const projectData = [
     role: "Frontend Developer",
     duration: "Nov 2023 - March 2024",
     description:
-      "SniffITS is an innovative project developed as part of the Matching Fund 2023 program by Kedaireka.id, focusing on creating a prototype for ship emission monitoring devices to support smart and green ports. This project integrates drone technology from Beehive Drones, equipped with advanced sensors capable of detecting pollutants such as NO2, NO, SO2, and other particulates. The collected data is transmitted in real-time to a centralized server and visualized through a dashboard, enabling real-time monitoring of emissions in port areas. As a Frontend Developer, I contributed to building the web platform, ensuring seamless data visualization and an intuitive user interface. This project was a collaborative effort between the Informatics and Marine Transportation departments, where I worked alongside four talented peers to bring this vision to life.",
+      "SniffITS is an innovative project developed as part of the Matching Fund 2023 program by Kedaireka.id, focusing on creating a prototype for ship emission monitoring devices to support smart and green ports. This project integrates drone technology from Beehive Drones, equipped with advanced sensors capable of detecting pollutants such as NO2, NO, SO2, and other particulates. The collected data is transmitted in real-time to a centralized server and visualized through a dashboard. As a Frontend Developer, I contributed to building the web platform, ensuring seamless data visualization and an intuitive user interface.",
     link: "-",
     techStack: [
       "Next JS",
