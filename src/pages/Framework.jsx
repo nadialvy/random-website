@@ -215,7 +215,7 @@ const Framework = () => {
           </div>
 
           <div className="flex flex-col max-lg:min-h-[30vh] ml-[13%] text-[30px] lg:text-[36px] font-semibold items-start justify-start">
-            <p className="leading-none mb-0">Dropbox is designed to simplify the frenzy of modern work</p>
+            <p className="leading-none mb-0">Dropbox is designed <br className="hidden lg:block" /> to simplify <br className="hidden lg:block" /> the frenzy of modern work</p>
           </div>
           <div className="hidden lg:flex flex-col ml-[12.7%] mt-[6%] mr-[7.5%]">
             <div className="flex justify-between items-start">

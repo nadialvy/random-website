@@ -4,6 +4,8 @@ import SmoothScrolling from "../component/SmoothScrolling";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import TechStackItem from "../component/greetings/TechStackItem";
 import ScrollMagic from "scrollmagic";
+import projectData from "../constant/projectData";
+import ProjectCard from "../component/greetings/ProjectCard";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -468,54 +470,10 @@ export default function Greetings() {
             <div className="h-[220vh] z-50">
               <div className="cards-container">
                 <ul id="cards" className=" p-6">
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card1">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe lorem ipsum </p>
-                      <h2>Card 1</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card2">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 2</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card3">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 3</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card4">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 4</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card5">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 5</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card6">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 6</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card7">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 7</h2>
-                    </div>
-                  </li>
-                  <li className="card rounded-3xl max-lg:rounded-xl" id="card8">
-                    <div className="card-body shadow-md">
-                      <p>halooo hehe</p>
-                      <h2>Card 8</h2>
-                    </div>
-                  </li>
+                  {projectData.map((project, index) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                    <ProjectCard key={index} {...project} />
+                  ))}
                 </ul>
               </div>
               <li className="font-roboto mt-48">And many more to come 👀!</li>

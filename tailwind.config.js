@@ -27,6 +27,15 @@ module.exports = {
           "url('https://www.igsas.com.tr/uploads/news/25--12-2024/d90789e8-9a1a-4eb3-9d93-90db861fea85.webp')",
         apaajadeh:
           "url('https://www.igsas.com.tr/assets/images/main/stats-image.jpg')",
+        projectsIlits: "url('/public/images/projects/ilits24.png')",
+        projectsTedx: "url('/public/images/projects/tedx.png')",
+        projectsSniffits: "url('/public/images/projects/sniffits.jpeg')",
+        projectsIlits25: "url('/public/images/projects/ilits25.png')",
+        petrolida: "url('/public/images/projects/petrolida.png')",
+        igsas: "url('/public/images/projects/igsas.png')",
+        framework: "url('/public/images/projects/framework.png')",
+        raihasa: "url('/public/images/projects/raihasa.png')",
+        personal: "url('/public/images/projects/personal.png')",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

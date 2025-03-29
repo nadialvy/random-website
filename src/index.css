@@ -13,7 +13,7 @@
   overflow-x: hidden;
 }
 
-.greetings div {
+.greetings * {
   font-family: "Roboto Mono", monospace !important;
 }
 
@@ -125,7 +125,7 @@ html {
 
 /* Card colors */
 .card:nth-child(1) {
-  background-color: #9679c2;
+  /* background-color: #9679c2; */
   z-index: 50;
 }
 
