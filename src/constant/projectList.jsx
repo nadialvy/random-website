@@ -1,4 +1,4 @@
-const projectData = [
+export const projectList = [
   {
     title: "Ini Lho ITS! 2024",
     role: "Frontend Developer",
@@ -143,5 +143,3 @@ const projectData = [
     bgImage: "bg-personal",
   },
 ];
-
-export default projectData;

@@ -25,12 +25,12 @@
 .framework {
   font-family: "Prompt", sans-serif;
   overflow-y: auto;
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .framework::-webkit-scrollbar {
-  display: none; 
+  display: none;
   width: 0;
   height: 0;
 }
@@ -44,7 +44,7 @@
   top: 0;
   left: 0;
   pointer-events: none;
-  transition: transform 0.1s ease-out; 
+  transition: transform 0.1s ease-out;
   z-index: 50;
 }
 
@@ -91,25 +91,32 @@ html {
   background: transparent;
 }
 
+ /* cards project*/ 
 .cards-container {
   position: relative;
   width: 100%;
   height: 100vh;
+  /* border: 1px solid rgb(106, 199, 69); */
   display: flex;
+  /* background-color: #ffe047; */
   align-items: center;
   justify-content: center;
-  overflow: hidden; 
+  overflow: hidden;
   z-index: 50;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 #cards {
   position: relative;
   width: 100%;
-  max-width: 1000px; 
-  height: 100%; 
+  max-width: 1000px;
+  height: 100%;
   margin: 0 auto;
   list-style: none;
   padding: 0;
+  z-index: 50;
 }
 
 .card {
@@ -120,6 +127,9 @@ html {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 10%;
   background-color: white;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Card colors */
@@ -183,48 +193,48 @@ html {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  z-index: 40;
+  z-index: 0;
   clip-path: inset(0 0 50% 0);
 }
 
 .slider-section {
-	height: 22vh;
-	bottom: 0;
-	position: fixed;
-	width: 100%;
+  height: 22vh;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 
 .wheel {
-	position: absolute;
-	top: 10%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100vw;
-	height: 100vw;
-	max-width: 800px;
-	max-height: 800px;
-	left: 50%;
-	transform: translateX(-50%);
+  position: absolute;
+  top: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vw;
+  max-width: 800px;
+  max-height: 800px;
+  left: 50%;
+  transform: translateX(-50%);
   overflow: visible;
 }
 
 .wheel__card {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 10%;
-	max-width: 200px;
-	aspect-ratio: 1 / 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
   z-index: 10;
   pointer-events: auto;
 }
 
 .wheel__card img {
-	width: 200%;
-	pointer-events: none;
-	z-index: 999;
-	cursor: pointer;
+  width: 200%;
+  pointer-events: none;
+  z-index: 999;
+  cursor: pointer;
 }
 
 @media (max-width: 1024px) {
@@ -237,9 +247,18 @@ html {
   will-change: transform;
 }
 
-
 .projects-container {
   transform: none !important;
   perspective: none !important;
   filter: none !important;
 }
+
+.fixed-center {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 40;
+}
+
