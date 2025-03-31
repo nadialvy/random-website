@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
-import SmoothScrolling from "../component/SmoothScrolling";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import TechStackItem from "../component/greetings/TechStackItem";
 import ScrollMagic from "scrollmagic";
