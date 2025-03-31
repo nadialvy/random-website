@@ -12,7 +12,7 @@ const ProjectCard = ({
   const trimmedText = `${description.slice(0, 100)}...`;
   return (
     <li
-      className={`card rounded-3xl max-lg:rounded-xl grayscale hover:grayscale-0 transition-[filter] duration-300 ${bgImage} bg-center bg-no-repeat bg-cover group relative overflow-hidden`}
+      className={`card rounded-3xl max-lg:rounded-xl  max-w-full grayscale hover:grayscale-0 transition-[filter] duration-300 ${bgImage} bg-center bg-no-repeat bg-cover group relative`}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-70 lg:opacity-45" />
