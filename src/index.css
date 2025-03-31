@@ -15,7 +15,7 @@
 
 .greetings * {
   font-family: "Roboto Mono", monospace !important;
-  /* cursor: none !important; */
+  cursor: none !important;
 }
 
 .merritext {
@@ -216,13 +216,8 @@ html {
 	width: 10%;
 	max-width: 200px;
 	aspect-ratio: 1 / 1;
-	cursor: pointer;
   z-index: 10;
   pointer-events: auto;
-}
-
-.wheel__card:hover{
-  cursor: pointer !important;
 }
 
 .wheel__card img {
@@ -236,9 +231,8 @@ html {
   .wheel {
     display: none !important;
   }
-
-  .wheel-container{
-    /* height: 1000px; */
-  }
 }
 
+.card {
+  will-change: transform;
+}
