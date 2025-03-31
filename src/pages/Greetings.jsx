@@ -183,7 +183,6 @@ export default function Greetings() {
           gsap.set(".cards-container", {
             clearProps: "all",
           });
-          console.log("🔴 Cards-container not fixed yet"); // Debug log when not fixed
         },
       },
     });
@@ -470,7 +469,7 @@ export default function Greetings() {
           </div>
 
           {/* projects */}
-          <div className="w-full debug-blue min-h-[340vh] projects-container mt-12 mb-48">
+          <div className="w-full min-h-[340vh] projects-container mt-12 mb-48">
             <div className="projectTitle mb-12">
               <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
                 Projects
@@ -479,8 +478,8 @@ export default function Greetings() {
                 A glimpse of the stuffs I’ve built along the way!
               </p>
             </div>
-            <div className="h-[180vh] debug-red z-50">
-              <div className="debug-yellow cards-container">
+            <div className="h-[180vh] z-50">
+              <div className="cards-container">
                 <ul id="cards" className="p-6">
                   {projectData.map((project, index) => (
                     // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
