@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
+import SmoothScrolling from "../component/SmoothScrolling";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import TechStackItem from "../component/greetings/TechStackItem";
 import ScrollMagic from "scrollmagic";
@@ -155,7 +156,7 @@ export default function Greetings() {
       scrollTrigger: {
         trigger: ".cards-container",
         start: "top top",
-        end: "+=270%",
+        end: "+=300%",
         scrub: 1,
         pin: true,
         pinSpacing: true,
@@ -163,9 +164,10 @@ export default function Greetings() {
           if (self.progress >= 0.8) {
             gsap.set(".cards-container", {
               position: "fixed",
-              top: "50%",
+              top: 0,
               left: "50%",
-              transform: "translate(-50%, -50%)",
+              transform: "translateX(-50%)",
+              width: "100%",
               zIndex: 40,
             });
 
@@ -245,8 +247,7 @@ export default function Greetings() {
         const y = center - radius * Math.cos(angle);
 
         gsap.set(item, {
-          // biome-ignore lint/style/useTemplate: <explanation>
-          rotation: angle + "_rad", // Convert to degrees
+          rotation: `${angle}_rad`,
           xPercent: -50,
           yPercent: -50,
           x: x,
@@ -281,297 +282,291 @@ export default function Greetings() {
 
   return (
     // <SmoothScrolling>
-      <div className="h-full w-full">
-        <div className="greetings py-12 max-lg:px-4 flex justify-start flex-col items-center max-w-4xl mx-auto">
-          <div className="flex w-full justify-start items-center">
-            <div className="h-[40px] max-lg:w-[100px] w-[138px] flex justify-center items-center overflow-hidden relative">
-              <div className="relative w-full h-[40px]">
-                <div
-                  ref={greetingsRef}
-                  className="absolute max-md:text-[18px] z-20 w-fit text-2xl font-roboto font-bold text-[#3a3a3a] flex justify-start items-start"
-                >
-                  {greetings[currentIndex]}
-                </div>
-              </div>
-            </div>
-            <p className="max-lg:text-[18px] text-[24px] font-roboto z-20 text-[#3a3a3a] text-right">
-              I'm{" "}
-              <span className="font-semibold font-roboto cursor-target">
-                Nadia
-              </span>{" "}
-              Lovely.
-            </p>
-          </div>
-
-          {/* about section */}
-          <div className="flex flex-col text-[15px] lg:text-[16px] gap-y-4 mt-12 cursor-default">
-            <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
-              About Me
-            </p>
-            <p className=" z-20 font-roboto -mt-3 text-justify">
-              I didn’t plan to dive deep into frontend dev, but here I am—hooked
-              since 2023.{" "}
-              <span className="font-semibold cursor-target font-roboto">
-                Turning ideas into interactive interfaces felt like magic,
-              </span>{" "}
-              but I started wondering what happens behind the scenes. That
-              curiosity{" "}
-              <span className="font-semibold cursor-target font-roboto">
-                led me to explore backend development,
-              </span>{" "}
-              and before I knew it, I was knee-deep in APIs and databases. Now,
-              I’m having fun figuring out how to make both sides of the web work
-              in harmony.
-            </p>
-            <p className="font-roboto z-20 text-justify">
-              Right now, I’m balancing life as a 4th-semester Information
-              Systems student at ITS while also rocking the role of{" "}
-              <span className="font-roboto cursor-target font-semibold">
-                Project and Product Manager
-              </span>{" "}
-              in some different projects. I love mixing tech with management
-              whether it’s aligning timelines, brainstorming ideas, or making
-              sure things don’t go off the rails. I get a weird thrill from
-              juggling multiple things at once because exploring new stuff keeps
-              me going.{" "}
-              <span className="font-roboto cursor-target font-semibold">
-                Life’s too short to stick to one thing, right?
-              </span>
-            </p>
-            <p className="font-roboto z-20 text-justify">
-              Personality-wise? People often think I’m all serious and no fun,
-              but nah, I’m just one good convo away from going full-on talkative
-              mode! I’m super easy to vibe with,{" "}
-              <span className="font-roboto cursor-target font-semibold">
-                love yapping about anything and everything
-              </span>
-              . So, if you’re down to talk tech, life, or even random stuff, hit
-              me up!
-            </p>
-          </div>
-
-          {/* tech stack */}
-          <div className="flex flex-col justify-start items-start w-full text-[15px] gap-y-4 mt-12 cursor-default">
-            <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
-              Stacks
-            </p>
-            <div className="w-full flex max-md:flex-col max-md:gap-4 gap-12 -mt-4 justify-start items-start">
-              <div className="lg:w-1/2 flex flex-col justify-start items-start max-md:gap-4 gap-8">
-                <div>
-                  <p className="font-roboto text-[16px] font-medium lg:font-semibold">
-                    Programming Language
-                  </p>
-                  <div className="flex justify-start flex-wrap items-center gap-2">
-                    <TechStackItem
-                      icon="/images/stack/ts.svg"
-                      altText="typescript"
-                      label="Typescript"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/js.svg"
-                      altText="javascript"
-                      label="Javascript"
-                    />
-                    <div className="hidden md:block md:w-[10px] lg:w-[10%]" />
-                    <TechStackItem
-                      icon="/images/stack/go.svg"
-                      altText="golang"
-                      label="Golang"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <p className="font-roboto text-[16px] font-medium lg:font-semibold">
-                    Framework and Library
-                  </p>
-                  <div className="flex justify-start flex-wrap items-center gap-2">
-                    <TechStackItem
-                      icon="/images/stack/next.svg"
-                      altText="next"
-                      label="Next JS"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/tailwind.svg"
-                      altText="tailwind"
-                      label="Tailwind"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/shadcn.svg"
-                      altText="shadcn"
-                      label="Shadcn-ui"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/flutter.svg"
-                      altText="flutter"
-                      label="Flutter"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/go.svg"
-                      altText="gin"
-                      label="Gin"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="lg:w-1/2 flex flex-col justify-start items-start max-md:gap-4 gap-8">
-                <div>
-                  <p className="font-roboto text-[16px] font-medium lg:font-semibold">
-                    Animation
-                  </p>
-                  <div className="flex justify-start flex-wrap items-start gap-2">
-                    <TechStackItem
-                      icon="/images/stack/gsap.jpg"
-                      altText="gsap"
-                      label="GSAP"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/scrollmagic.jpg"
-                      altText="scrollmagic"
-                      label="Scroll Magic"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/frammer.svg"
-                      altText="frammer"
-                      label="Frammer Motion"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/aos.png"
-                      altText="aos"
-                      label="AOS"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <p className="font-roboto text-[16px] font-medium lg:font-semibold">
-                    Project Management
-                  </p>
-                  <div className="flex justify-start flex-wrap items-center gap-2">
-                    <TechStackItem
-                      icon="/images/stack/gh.svg"
-                      altText="github project"
-                      label="Github Projects"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/jira.svg"
-                      altText="jira"
-                      label="Jira"
-                    />
-                    <TechStackItem
-                      icon="/images/stack/notion.svg"
-                      altText="notion"
-                      label="Notion"
-                    />
-                  </div>
-                </div>
+    <div className="h-full w-full">
+      <div className="greetings py-12 max-lg:px-4 flex justify-start flex-col items-center max-w-4xl mx-auto">
+        <div className="flex w-full justify-start items-center">
+          <div className="h-[40px] max-lg:w-[100px] w-[138px] flex justify-center items-center overflow-hidden relative">
+            <div className="relative w-full h-[40px]">
+              <div
+                ref={greetingsRef}
+                className="absolute max-md:text-[18px] z-20 w-fit text-2xl font-roboto font-bold text-[#3a3a3a] flex justify-start items-start"
+              >
+                {greetings[currentIndex]}
               </div>
             </div>
           </div>
+          <p className="max-lg:text-[18px] text-[24px] font-roboto z-20 text-[#3a3a3a] text-right">
+            I'm{" "}
+            <span className="font-semibold font-roboto cursor-target">
+              Nadia
+            </span>{" "}
+            Lovely.
+          </p>
+        </div>
 
-          {/* projects */}
-          <div className="w-full min-h-[340vh] projects-container mt-12 mb-48">
-            <div className="projectTitle mb-12">
-              <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
-                Projects
-              </p>
-              <p className="mb-10 font-roboto">
-                A glimpse of the stuffs I’ve built along the way!
-              </p>
-            </div>
-            <div className="h-[180vh] z-50">
-              <div className="cards-container">
-                <ul id="cards" className="p-6">
-                  {projectData.map((project, index) => (
-                    // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                    <ProjectCard key={index} {...project} />
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+        {/* about section */}
+        <div className="flex flex-col text-[15px] lg:text-[16px] gap-y-4 mt-12 cursor-default">
+          <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
+            About Me
+          </p>
+          <p className=" z-20 font-roboto -mt-3 text-justify">
+            I didn’t plan to dive deep into frontend dev, but here I am—hooked
+            since 2023.{" "}
+            <span className="font-semibold cursor-target font-roboto">
+              Turning ideas into interactive interfaces felt like magic,
+            </span>{" "}
+            but I started wondering what happens behind the scenes. That
+            curiosity{" "}
+            <span className="font-semibold cursor-target font-roboto">
+              led me to explore backend development,
+            </span>{" "}
+            and before I knew it, I was knee-deep in APIs and databases. Now,
+            I’m having fun figuring out how to make both sides of the web work
+            in harmony.
+          </p>
+          <p className="font-roboto z-20 text-justify">
+            Right now, I’m balancing life as a 4th-semester Information Systems
+            student at ITS while also rocking the role of{" "}
+            <span className="font-roboto cursor-target font-semibold">
+              Project and Product Manager
+            </span>{" "}
+            in some different projects. I love mixing tech with management
+            whether it’s aligning timelines, brainstorming ideas, or making sure
+            things don’t go off the rails. I get a weird thrill from juggling
+            multiple things at once because exploring new stuff keeps me going.{" "}
+            <span className="font-roboto cursor-target font-semibold">
+              Life’s too short to stick to one thing, right?
+            </span>
+          </p>
+          <p className="font-roboto z-20 text-justify">
+            Personality-wise? People often think I’m all serious and no fun, but
+            nah, I’m just one good convo away from going full-on talkative mode!
+            I’m super easy to vibe with,{" "}
+            <span className="font-roboto cursor-target font-semibold">
+              love yapping about anything and everything
+            </span>
+            . So, if you’re down to talk tech, life, or even random stuff, hit
+            me up!
+          </p>
+        </div>
 
-          {/* contact */}
-          <div className="wheel-container lg:mt-48 z-50 hover:cursor-pointer -mt-12 lg:pt-12">
-            <div
-              className="header absolute -top-11 left-0 pt-12"
-              ref={headerRef}
-            >
-              <p className="font-roboto max-lg:text-[18px] text-[24px] font-bold">
-                What else?
-              </p>
-              <p className="font-roboto max-lg:text-[14px]">
-                Lets collaborate, discuss potential opportunities, or connect
-                with me.
-              </p>
-              <p className="font-roboto">You can find me on:</p>
-              <div className="flex mt-2 w-full gap-2 flex-wrap justify-start items-start lg:hidden">
-                <SocialLink
-                  href="mailto:nadialovely1803@gmail.com"
-                  icon="/images/socialmedia/2.png"
-                  alt="Gmail"
-                  label="nadialovely1803@gmail.com"
-                />
-                <SocialLink
-                  href="https://github.com/nadialvy"
-                  icon="/images/socialmedia/1.png"
-                  alt="GitHub"
-                  label="nadialvy"
-                />
-                <SocialLink
-                  href="https://www.linkedin.com/in/nadia-lovely"
-                  icon="/images/socialmedia/4.png"
-                  alt="Linkedin"
-                  label="Nadia Lovely"
-                />
-                <SocialLink
-                  href="https://www.instagram.com/nadlvy_"
-                  icon="/images/socialmedia/3.png"
-                  alt="Instagram"
-                  label="nadlvy_"
-                />
-
-                <SocialLink
-                  href="https://medium.com/@daisythoughts"
-                  icon="/images/socialmedia/5.png"
-                  alt="Medium"
-                  label="daisythoughts"
-                />
-              </div>
-            </div>
-            <div className="wheel z-50" ref={wheelRef}>
-              {[...Array(10)].map((_, num) => (
-                // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
-                <div
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  key={num}
-                  className="wheel__card"
-                  onClick={() =>
-                    window.open(socialMediaLinks[num % 5], "_blank")
-                  }
-                >
-                  <img
-                    src={`/images/socialmedia/${(num % 5) + 1}.png`} // Ulangi 1-5
-                    alt={`Card ${(num % 5) + 1}`}
+        {/* tech stack */}
+        <div className="flex flex-col justify-start items-start w-full text-[15px] gap-y-4 mt-12 cursor-default">
+          <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
+            Stacks
+          </p>
+          <div className="w-full flex max-md:flex-col max-md:gap-4 gap-12 -mt-4 justify-start items-start">
+            <div className="lg:w-1/2 flex flex-col justify-start items-start max-md:gap-4 gap-8">
+              <div>
+                <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+                  Programming Language
+                </p>
+                <div className="flex justify-start flex-wrap items-center gap-2">
+                  <TechStackItem
+                    icon="/images/stack/ts.svg"
+                    altText="typescript"
+                    label="Typescript"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/js.svg"
+                    altText="javascript"
+                    label="Javascript"
+                  />
+                  <div className="hidden md:block md:w-[10px] lg:w-[10%]" />
+                  <TechStackItem
+                    icon="/images/stack/go.svg"
+                    altText="golang"
+                    label="Golang"
                   />
                 </div>
-              ))}
+              </div>
+              <div>
+                <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+                  Framework and Library
+                </p>
+                <div className="flex justify-start flex-wrap items-center gap-2">
+                  <TechStackItem
+                    icon="/images/stack/next.svg"
+                    altText="next"
+                    label="Next JS"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/tailwind.svg"
+                    altText="tailwind"
+                    label="Tailwind"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/shadcn.svg"
+                    altText="shadcn"
+                    label="Shadcn-ui"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/flutter.svg"
+                    altText="flutter"
+                    label="Flutter"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/go.svg"
+                    altText="gin"
+                    label="Gin"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="-mb-[200%] lg:-mb-[56%] z-50 h-10 bg-pink-200">
-            hehe
+            <div className="lg:w-1/2 flex flex-col justify-start items-start max-md:gap-4 gap-8">
+              <div>
+                <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+                  Animation
+                </p>
+                <div className="flex justify-start flex-wrap items-start gap-2">
+                  <TechStackItem
+                    icon="/images/stack/gsap.jpg"
+                    altText="gsap"
+                    label="GSAP"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/scrollmagic.jpg"
+                    altText="scrollmagic"
+                    label="Scroll Magic"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/frammer.svg"
+                    altText="frammer"
+                    label="Frammer Motion"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/aos.png"
+                    altText="aos"
+                    label="AOS"
+                  />
+                </div>
+              </div>
+              <div>
+                <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+                  Project Management
+                </p>
+                <div className="flex justify-start flex-wrap items-center gap-2">
+                  <TechStackItem
+                    icon="/images/stack/gh.svg"
+                    altText="github project"
+                    label="Github Projects"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/jira.svg"
+                    altText="jira"
+                    label="Jira"
+                  />
+                  <TechStackItem
+                    icon="/images/stack/notion.svg"
+                    altText="notion"
+                    label="Notion"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div>
-          <div
-            ref={cursorRef}
-            className="fixed hidden lg:block top-0 left-0 w-3 h-3 bg-yellow-400 rounded-full pointer-events-none z-[9999]"
-          />
-          <div
-            ref={circleRef}
-            className="fixed hidden lg:block -top-[2%] -left-[1.8%] w-12 h-12 border border-black rounded-full pointer-events-none z-[9998]"
-          />
+        {/* projects */}
+        <div className="w-full min-h-[300vh] max-h-[450vh] projects-container mt-12 mb-48">
+          <div className="projectTitle mb-12">
+            <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
+              Projects
+            </p>
+            <p className="mb-10 font-roboto">
+              A glimpse of the stuffs I’ve built along the way!
+            </p>
+          </div>
+          <div className="absolute w-full min-h-[290vh] max-h-[440vh] max-w-4xl mx-auto z-50">
+            <div className=" w-full h-fit cards-container">
+              <ul id="cards" className="p-6">
+                {projectData.map((project, index) => (
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                  <ProjectCard key={index} {...project} />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* contact */}
+        <div className="wheel-container lg:mt-48 z-50 hover:cursor-pointer -mt-12 lg:pt-12">
+          <div className="header absolute -top-11 left-0 pt-12" ref={headerRef}>
+            <p className="font-roboto max-lg:text-[18px] text-[24px] font-bold">
+              What else?
+            </p>
+            <p className="font-roboto max-lg:text-[14px]">
+              Lets collaborate, discuss potential opportunities, or connect with
+              me.
+            </p>
+            <p className="font-roboto">You can find me on:</p>
+            <div className="flex mt-2 w-full gap-2 flex-wrap justify-start items-start lg:hidden">
+              <SocialLink
+                href="mailto:nadialovely1803@gmail.com"
+                icon="/images/socialmedia/2.png"
+                alt="Gmail"
+                label="nadialovely1803@gmail.com"
+              />
+              <SocialLink
+                href="https://github.com/nadialvy"
+                icon="/images/socialmedia/1.png"
+                alt="GitHub"
+                label="nadialvy"
+              />
+              <SocialLink
+                href="https://www.linkedin.com/in/nadia-lovely"
+                icon="/images/socialmedia/4.png"
+                alt="Linkedin"
+                label="Nadia Lovely"
+              />
+              <SocialLink
+                href="https://www.instagram.com/nadlvy_"
+                icon="/images/socialmedia/3.png"
+                alt="Instagram"
+                label="nadlvy_"
+              />
+
+              <SocialLink
+                href="https://medium.com/@daisythoughts"
+                icon="/images/socialmedia/5.png"
+                alt="Medium"
+                label="daisythoughts"
+              />
+            </div>
+          </div>
+          <div className="wheel z-50" ref={wheelRef}>
+            {[...Array(10)].map((_, num) => (
+              // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
+              <div
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                key={num}
+                className="wheel__card"
+                onClick={() => window.open(socialMediaLinks[num % 5], "_blank")}
+              >
+                <img
+                  src={`/images/socialmedia/${(num % 5) + 1}.png`} // Ulangi 1-5
+                  alt={`Card ${(num % 5) + 1}`}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="-mb-[200%] lg:-mb-[56%] z-50 h-10 bg-transparent">
+          {""}
         </div>
       </div>
+
+      <div>
+        <div
+          ref={cursorRef}
+          className="fixed hidden lg:block top-0 left-0 w-3 h-3 bg-yellow-400 rounded-full pointer-events-none z-[9999]"
+        />
+        <div
+          ref={circleRef}
+          className="fixed hidden lg:block -top-[2%] -left-[1.8%] w-12 h-12 border border-black rounded-full pointer-events-none z-[9998]"
+        />
+      </div>
+    </div>
     // </SmoothScrolling>
   );
 }

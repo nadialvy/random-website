@@ -236,3 +236,10 @@ html {
 .card {
   will-change: transform;
 }
+
+
+.projects-container {
+  transform: none !important;
+  perspective: none !important;
+  filter: none !important;
+}
