@@ -2,12 +2,11 @@ import React from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import SmoothScrolling from "../component/SmoothScrolling";
-import Contact from "../component/greetings/Contact";
 import Cursor from "../component/greetings/Cursor";
 import TechStack from "../component/greetings/TechStack";
 import About from "../component/greetings/About";
 import Greeting from "../component/greetings/Greeting";
-import Projects from "../component/greetings/Projects";
+import ProjectsAndContact from "../component/greetings/Projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,8 +18,7 @@ export default function Greetings() {
           <Greeting />
           <About />
           <TechStack />
-          <Projects />
-          {/* <Contact /> */}
+          <ProjectsAndContact />
           <div className="-mb-[200%] lg:-mb-[56%] z-50 h-10 bg-transparent">
             {""}
           </div>

@@ -6,7 +6,7 @@ import { projectList } from "../../constant/projectList";
 import SocialLink from "./SocialLink";
 import socialMediaLinks from "../../constant/socialMediaLink";
 
-export default function Projects() {
+export default function ProjectsAndContact() {
   ScrollTrigger.normalizeScroll(true);
   ScrollTrigger.config({ ignoreMobileResize: true });
   const projectTitleRef = useRef(null);
@@ -49,7 +49,7 @@ export default function Projects() {
                zIndex: 40,
              });
 
-            gsap.set(".projects-container", {
+            gsap.set(".projectsAndContact-container", {
               zIndex: 0,
             });
           } else {
