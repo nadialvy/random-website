@@ -6,7 +6,7 @@ import Cursor from "../component/greetings/Cursor";
 import TechStack from "../component/greetings/TechStack";
 import About from "../component/greetings/About";
 import Greeting from "../component/greetings/Greeting";
-import ProjectsAndContact from "../component/greetings/Projects";
+import ProjectsAndContact from "../component/greetings/ProjectsAndContact";
 
 gsap.registerPlugin(ScrollTrigger);
 

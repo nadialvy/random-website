@@ -5,10 +5,10 @@ export default function About() {
         About Me
       </p>
       <p className=" z-20 font-roboto -mt-3 text-justify">
-        I didn’t plan to dive deep into frontend dev, but here I am—hooked since
-        2023.{" "}
+        I didn’t plan to dive deep into frontend dev, but here I am, hooked
+        since 2023.{" "}
         <span className="font-semibold cursor-target font-roboto">
-          Turning ideas into interactive interfaces felt like magic,
+          It's pure magic to see ideas transform into interactive interfaces.
         </span>{" "}
         but I started wondering what happens behind the scenes. That curiosity{" "}
         <span className="font-semibold cursor-target font-roboto">

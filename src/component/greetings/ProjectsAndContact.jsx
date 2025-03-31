@@ -222,20 +222,26 @@ export default function ProjectsAndContact() {
               alt="Medium"
               label="daisythoughts"
             />
+            <SocialLink
+              href="https://drive.google.com/file/d/1PbbT4J18Y_tadeQpqiCKi2fR0oZgGXGB/view?usp=sharing"
+              icon="/images/socialmedia/6.png"
+              alt="CV"
+              label="Download My CV"
+            />
           </div>
         </div>
         <div className="wheel z-50" ref={wheelRef}>
-          {[...Array(10)].map((_, num) => (
+          {[...Array(11)].map((_, num) => (
             // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
             <div
               // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               key={num}
               className="wheel__card"
-              onClick={() => window.open(socialMediaLinks[num % 5], "_blank")}
+              onClick={() => window.open(socialMediaLinks[num % 6], "_blank")}
             >
               <img
-                src={`/images/socialmedia/${(num % 5) + 1}.png`} // Ulangi 1-5
-                alt={`Card ${(num % 5) + 1}`}
+                src={`/images/socialmedia/${(num % 6) + 1}.png`}
+                alt={`Card ${(num % 6) + 1}`}
               />
             </div>
           ))}
