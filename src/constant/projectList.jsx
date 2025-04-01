@@ -60,7 +60,7 @@ export const projectList = [
     role: "Project Manager",
     duration: "Oct 2024 - March 2025",
     description:
-      "Ini Lho ITS! 2025 continues the mission of inspiring high school students across Indonesia. As Project (and Product) Manager, I ensured timely feature releases, streamlined cross-division collaboration, and optimized project timelines. My leadership helped the IT Dev team engage 15,000+ active users and improve website performance by 30% from the previous year.",
+      "Ini Lho ITS! 2025 continues the mission of inspiring high school students across Indonesia. As Project (and Product) Manager, I ensured timely feature releases, streamlined cross-division collaboration, and optimized project timelines. Together with the IT Dev team, we were able to reach and engage 15,000+ active users and improve website performance and engagement by total more than 30% from the previous year.",
     link: "https://inilho.its.ac.id/",
     techStack: [
       "Github Projects",
