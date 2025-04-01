@@ -227,7 +227,7 @@ export default function ProjectsAndContact() {
               href="https://drive.google.com/file/d/1PbbT4J18Y_tadeQpqiCKi2fR0oZgGXGB/view?usp=sharing"
               icon="/images/socialmedia/6.png"
               alt="CV"
-              label="Download My CV"
+              label="Access My CV"
             />
           </div>
         </div>
