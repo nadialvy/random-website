@@ -40,14 +40,14 @@ export default function ProjectsAndContact() {
         pinSpacing: true,
         onUpdate: (self) => {
           if (self.progress >= 0.95) {
-             gsap.set(".cards-container", {
-               position: "fixed",
-               top: 0,
-               left: "50%",
-               transform: "translateX(-50%)",
-               width: "100%",
-               zIndex: 40,
-             });
+            gsap.set(".cards-container", {
+              position: "fixed",
+              top: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "100%",
+              zIndex: 40,
+            });
 
             gsap.set(".projectsAndContact-container", {
               zIndex: 0,
@@ -154,6 +154,7 @@ export default function ProjectsAndContact() {
 
   return (
     <>
+      {/* modal mobile */}
       <div className="w-full min-h-[300vh] max-h-[450vh] max-lg:min-h-[340vh] projects-container mt-12 mb-48">
         <div
           ref={projectTitleRef}
@@ -177,7 +178,7 @@ export default function ProjectsAndContact() {
           </div>
         </div>
       </div>
-      <div className="wheel-container max-lg:max-h-[70vh] lg:mt-48 z-50 hover:cursor-pointer -mt-12 lg:pt-12">
+      <div className="wheel-container max-lg:max-h-[90vh] lg:mt-48 z-50 hover:cursor-pointer -mt-12 lg:pt-12">
         <div
           className="header absolute max-lg:px-3 -top-11 left-0 pt-12"
           ref={headerRef}

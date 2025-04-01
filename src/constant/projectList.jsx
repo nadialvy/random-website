@@ -23,7 +23,7 @@ export const projectList = [
     role: "Frontend Developer",
     duration: "Feb 2024 - June 2024",
     description:
-      "TEDxITS 2024 is an independently organized event that provides a platform for the ITS community to share impactful and unexplored ideas. The goal is to ignite discussions, foster connections, and build a stronger sense of community. The official TEDxITS 2024 website features advanced animations built with pure CSS and facilitates seamless seminar registration and payment processing for attendees.",
+      "TEDxITS 2024 is an independently organized event that provides a platform for the ITS community to share impactful and unexplored ideas. The goal is to ignite discussions, foster connections, and build a stronger sense of community. The official TEDxITS 2024 website features advanced animations built with pure CSS and facilitates seamless Ted Talks registration and payment processing for attendees.",
     link: "https://tedxits2024.vercel.app/",
     techStack: [
       "Next JS",
