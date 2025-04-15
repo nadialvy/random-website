@@ -49,7 +49,7 @@ export default function ProjectsAndContact() {
               zIndex: 40,
             });
 
-            gsap.set(".projectsAndContact-container", {
+            gsap.set(".projects-container", {
               zIndex: 0,
             });
           } else {
@@ -80,6 +80,7 @@ export default function ProjectsAndContact() {
         scrub: 1,
         onEnter: () => {
           if (stackTimeline.scrollTrigger.progress === 1) {
+            // console.log(stackTimeline.scrollTrigger.progress)
             gsap.set(".cards-container", {
               position: "fixed",
               top: "50%",
