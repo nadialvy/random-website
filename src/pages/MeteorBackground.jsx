@@ -286,6 +286,7 @@ const MeteorBackground = ({ children }) => {
         if (obj.material) obj.material.dispose();
       });
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Render a wrapper div that holds the fixed canvas + children
