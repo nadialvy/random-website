@@ -1,15 +1,25 @@
-import React from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import TechStackItem from "./TechStackItem";
+
 export default function TechStack() {
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <div className="flex max-lg:px-3 flex-col justify-start items-start w-full text-[15px] gap-y-4 mt-12 cursor-default">
+    <div
+      className={`flex max-lg:px-3 flex-col justify-start items-start w-full text-[15px] p-4 gap-y-4 mt-12 cursor-default ${
+        isDark
+          ? "bg-white/10 shadow-lg rounded-lg backdrop-blur-sm border-white/10 border"
+          : ""
+      }`}
+    >
       <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
         Stacks
       </p>
       <div className="w-full flex max-md:flex-col max-md:gap-4 gap-12 -mt-4 justify-start items-start">
         <div className="lg:w-1/2 flex flex-col justify-start items-start max-md:gap-4 gap-8">
           <div>
-            <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+            <p className="font-roboto text-[16px] font-medium lg:font-semibold mb-1">
               Programming Language
             </p>
             <div className="flex justify-start flex-wrap items-center gap-2">
@@ -32,7 +42,7 @@ export default function TechStack() {
             </div>
           </div>
           <div>
-            <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+            <p className="font-roboto text-[16px] font-medium lg:font-semibold mb-1">
               Framework and Library
             </p>
             <div className="flex justify-start flex-wrap items-center gap-2">
@@ -66,7 +76,7 @@ export default function TechStack() {
         </div>
         <div className="lg:w-1/2 flex flex-col justify-start items-start max-md:gap-4 gap-8">
           <div>
-            <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+            <p className="font-roboto text-[16px] font-medium lg:font-semibold mb-1">
               Animation
             </p>
             <div className="flex justify-start flex-wrap items-start gap-2">
@@ -93,7 +103,7 @@ export default function TechStack() {
             </div>
           </div>
           <div>
-            <p className="font-roboto text-[16px] font-medium lg:font-semibold">
+            <p className="font-roboto text-[16px] font-medium lg:font-semibold mb-1">
               Project Management
             </p>
             <div className="flex justify-start flex-wrap items-center gap-2">

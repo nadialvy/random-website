@@ -1,6 +1,16 @@
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 export default function About() {
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <div className="flex max-lg:px-3 flex-col text-[15px] lg:text-[16px] gap-y-4 mt-12 cursor-default">
+    <div
+      className={`flex max-lg:px-3 flex-col text-[15px] lg:text-[16px] gap-y-4 mt-12 p-4 cursor-default ${
+        isDark
+          ? "bg-white/10 shadow-lg rounded-lg backdrop-blur-sm border-white/10 border"
+          : ""
+      } `}
+    >
       <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
         About Me
       </p>

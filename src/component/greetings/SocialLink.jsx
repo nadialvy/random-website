@@ -8,7 +8,7 @@ const SocialLink = ({ href, icon, alt, label }) => {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="flex justify-start items-center gap-2 px-2 py-[2px] border border-gray-800 hover:bg-gray-100 transition-all duration-200"
+      className="flex justify-start items-center gap-2 px-2 py-[2px] hover:bg-gray-100 transition-all duration-200"
     >
       <img src={icon} alt={alt} className="w-6 h-6" />
       <p className="text-gray-800 text-[14px]">{label}</p>

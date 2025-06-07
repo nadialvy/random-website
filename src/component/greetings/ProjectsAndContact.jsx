@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
 import gsap from "gsap";
 import ProjectCard from "./ProjectCard";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { projectList } from "../../constant/projectList";
 import SocialLink from "./SocialLink";
 import socialMediaLinks from "../../constant/socialMediaLink";
+import { ThemeContext } from "../ThemeContext";
 
 export default function ProjectsAndContact() {
   ScrollTrigger.normalizeScroll(true);
@@ -153,13 +154,19 @@ export default function ProjectsAndContact() {
     };
   }, []);
 
+  const { isDark } = useContext(ThemeContext);
+
   return (
     <>
       {/* modal mobile */}
       <div className="w-full min-h-[300vh] max-h-[450vh] max-lg:min-h-[340vh] projects-container mt-12 mb-48">
         <div
           ref={projectTitleRef}
-          className="projectTitle  max-lg:mb-4 max-lg:px-3 mb-12"
+          className={`projectTitle max-lg:mb-4 max-lg:px-3 mb-12 p-4 ${
+            isDark
+              ? "bg-white/10 shadow-lg rounded-lg backdrop-blur-sm border-white/10 border"
+              : ""
+          }`}
         >
           <p className="font-roboto font-bold text-[24px] max-md:text-[19px]">
             Projects
@@ -181,17 +188,25 @@ export default function ProjectsAndContact() {
       </div>
       <div className="wheel-container max-lg:max-h-[90vh] lg:mt-48 z-50 hover:cursor-pointer -mt-12 lg:pt-12">
         <div
-          className="header absolute max-lg:px-3 -top-11 left-0 pt-12"
+          className="header w-full absolute max-lg:px-3 -top-11 left-0 pt-12"
           ref={headerRef}
         >
-          <p className="font-roboto max-lg:text-[18px] text-[24px] font-bold">
-            What else?
-          </p>
-          <p className="font-roboto max-lg:text-[14px]">
-            Lets collaborate, discuss potential opportunities, or connect with
-            me.
-          </p>
-          <p className="font-roboto">You can find me on:</p>
+          <div
+            className={`p-4 ${
+              isDark
+                ? "bg-white/10 shadow-lg rounded-lg backdrop-blur-sm border-white/10 border"
+                : ""
+            }`}
+          >
+            <p className="font-roboto max-lg:text-[18px] text-[24px] font-bold">
+              What else?
+            </p>
+            <p className="font-roboto max-lg:text-[14px]">
+              Lets collaborate, discuss potential opportunities, or connect with
+              me.
+            </p>
+            <p className="font-roboto">You can find me on:</p>
+          </div>
           <div className="flex mt-2 w-full gap-2 flex-wrap justify-start items-start lg:hidden">
             <SocialLink
               href="mailto:nadialovely1803@gmail.com"
