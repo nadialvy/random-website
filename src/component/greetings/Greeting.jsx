@@ -102,7 +102,7 @@ export default function Greeting() {
   }, [isDark]);
 
   return (
-    <div className="flex w-full justify-between items-center z-50 transition-colors duration-300 ease-in-out">
+    <div className="flex w-full z-20 justify-between items-center z-50 transition-colors duration-300 ease-in-out">
       <div className="flex w-full justify-start items-center max-lg:px-3">
         <div className="h-[40px] w-[100px] sm:w-[110px] md:w-[120px] lg:w-[138px] flex justify-center items-center overflow-hidden relative">
           <div className="relative w-full h-[40px] overflow-hidden">

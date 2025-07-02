@@ -14,19 +14,14 @@ export function ThemeProvider({ children }) {
   }, []);
 
   useEffect(() => {
-    if (isDark) {
+    if(isDark){
       document.body.style.backgroundColor = "black";
-      document.querySelectorAll("p").forEach((p) => {
-        p.style.color = "white";
-      });
-      window.localStorage.setItem("theme", "dark");
-    } else {
+    }else {
       document.body.style.backgroundColor = "white";
-      document.querySelectorAll("p").forEach((p) => {
-        p.style.color = "black";
-      });
-      window.localStorage.setItem("theme", "light");
     }
+    document.body.classList.toggle("dark", isDark);
+    document.body.classList.toggle("light", !isDark);
+    window.localStorage.setItem("theme", isDark ? "dark" : "light");
   }, [isDark]);
 
   const toggleTheme = () => setIsDark((prev) => !prev);

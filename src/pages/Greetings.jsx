@@ -9,6 +9,7 @@ import Greeting from "../component/greetings/Greeting";
 import ProjectsAndContact from "../component/greetings/ProjectsAndContact";
 import { ThemeContext } from "../component/ThemeContext";
 import MeteorBackground from "./MeteorBackground";
+// import SpinningWheel from "./SpinningWheel";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Greetings() {

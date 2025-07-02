@@ -3,6 +3,7 @@ import Igsas from "./pages/Igsas";
 import Framework from "./pages/Framework";
 import ZeroTwo from "./pages/ZeroTwo";
 import Greetings from "./pages/Greetings";
+import SpinningWheel from "./pages/SpinningWheel";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Route path="/igsas" element={<Igsas />} />
       <Route path="/framework" element={<Framework />} />
       <Route path="/zero-two" element={<ZeroTwo />} />
+      <Route path="/spinning-wheel" element={<SpinningWheel />} />
     </Routes>
   );
 }
