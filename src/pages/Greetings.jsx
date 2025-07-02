@@ -23,9 +23,6 @@ export default function Greetings() {
             <About />
             <TechStack />
             <ProjectsAndContact />
-            <div className="-mb-[200%] lg:-mb-[56%] z-50 h-10 bg-transparent">
-              {""}
-            </div>
           </div>
           <Cursor />
         </div>
@@ -37,9 +34,6 @@ export default function Greetings() {
             <About />
             <TechStack />
             <ProjectsAndContact />
-            <div className="-mb-[200%] lg:-mb-[56%] z-50 h-10 bg-transparent">
-              {""}
-            </div>
           </div>
           <Cursor />
         </div>

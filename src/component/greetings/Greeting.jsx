@@ -49,7 +49,6 @@ export default function Greeting() {
     "Hello 👋",
     "Halo 👋",
     "Hola 👋",
-    "Nǐ hǎo 👋",
     "Ciao 👋",
     "Olá 👋",
     "Hoi 👋",
@@ -105,12 +104,12 @@ export default function Greeting() {
   return (
     <div className="flex w-full justify-between items-center z-50 transition-colors duration-300 ease-in-out">
       <div className="flex w-full justify-start items-center max-lg:px-3">
-        <div className="h-[40px] max-lg:w-[100px] w-[138px] flex justify-center items-center overflow-hidden relative">
-          <div className="relative w-full h-[40px]">
+        <div className="h-[40px] w-[100px] sm:w-[110px] md:w-[120px] lg:w-[138px] flex justify-center items-center overflow-hidden relative">
+          <div className="relative w-full h-[40px] overflow-hidden">
             <div
               ref={greetingsRef}
-              style={{ willChange: "transform, opacity" }}
-              className="absolute max-md:text-[18px] z-20 w-fit text-2xl font-roboto font-bold flex justify-start items-start transition-colors duration-300 ease-in-out"
+              style={{ willChange: "transform" }}
+              className="absolute max-md:text-[18px] w-full z-20 w-fit text-2xl font-roboto font-bold flex justify-start items-center h-full transition-colors duration-300 ease-in-out"
             >
               {greetings[currentIndex]}
             </div>
@@ -118,11 +117,11 @@ export default function Greeting() {
         </div>
         <p
           ref={textRef}
-          className="max-lg:text-[18px] text-[24px] font-roboto z-20 text-right transition-colors duration-300 ease-in-out"
+          className="max-lg:text-[18px] text-[24px] font-roboto z-20 transition-colors duration-300 ease-in-out"
         >
           I'm{" "}
           <span className="font-semibold font-roboto cursor-target">Nadia</span>{" "}
-          Lovely.
+          Lovely
         </p>
       </div>
       <div className="hidden lg:flex items-center justify-center space-x-4 py-6">

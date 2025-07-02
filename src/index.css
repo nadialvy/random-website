@@ -8,6 +8,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 * {
   font-family: "Prompt", sans-serif;
   overflow-x: hidden;
@@ -16,6 +21,11 @@
 .greetings * {
   font-family: "Roboto Mono", monospace !important;
   cursor: none !important;
+}
+
+.greetings {
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .merritext {
@@ -82,8 +92,15 @@
 }
 
 html {
-  overflow: scroll;
   overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+[data-lenis] {
+  overflow-x: hidden !important;
 }
 
 ::-webkit-scrollbar {
@@ -293,4 +310,15 @@ html {
   transform: translateX(-50%);
   width: 100%;
   z-index: 40;
+}
+
+/* Prevent GSAP animations from causing scroll glitches */
+[style*="transform"] {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Ensure greetings animation container doesn't overflow */
+.greetings [style*="transform"] {
+  contain: layout style paint;
 }
